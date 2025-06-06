@@ -2,7 +2,7 @@
 // Descargar PDF del CV usando html2canvas y jsPDF
 document.getElementById('download-pdf').addEventListener('click', function () {
     const link = document.createElement('a');
-    link.href = 'PDF/CV_Hesvin_Dario_Molina_Rios_2025.PDF';
+    link.href = 'https://github.com/daroMR/cv/blob/public_html/PDF/CV_Hesvin_Dario_Molina_Rios_2025.pdf';
     link.download = 'CV_Hesvin_Dario_Molina_Rios_2025.PDF';
     document.body.appendChild(link);
     link.click();
