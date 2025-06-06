@@ -1,122 +1,408 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | TestScada</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-  </head>
-  <body>
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Hesvin Darío Molina Ríos</title>
+<!-- Tailwind CSS y fuentes -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet">
+
+<style>
+/* =========================
+   ESTILOS GENERALES Y TEMAS
+   ========================= */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc;
+    font-size: .95rem; /* Tamaño general del texto */
+}
+.justify {
+    text-align: justify;
+}
+/* Texto de perfil profesional y similares */
+.justify.text-xs.leading-relaxed {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+}
+/* Fijar el header */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #fff;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+}
+/* Temas personalizados (oscuro, aurora, solarized, vibrant) */
+body.dark { background-color: #18181b; color: #f4f4f5; }
+body.dark .bg-white { background-color: #27272a !important; }
+body.dark .text-gray-900, body.dark .text-gray-800, body.dark .text-gray-700, body.dark .text-gray-600, body.dark .text-gray-500 { color: #f4f4f5 !important; }
+body.dark .border-b, body.dark .border-t { border-color: #52525b !important; }
+body.dark .shadow-md { box-shadow: 0 2px 8px 0 rgba(0,0,0,0.5) !important; }
+body.dark .bg-blue-600 { background-color: #2563eb !important; }
+body.dark .hover\:bg-blue-700:hover { background-color: #1e40af !important; }
+
+body.theme-aurora { background: linear-gradient(135deg, #232526 0%, #414345 100%); color: #e0e7ff; }
+body.theme-aurora .bg-white { background: linear-gradient(135deg, #373b44 0%, #4286f4 100%) !important; }
+body.theme-aurora .text-gray-900, body.theme-aurora .text-gray-800, body.theme-aurora .text-gray-700, body.theme-aurora .text-gray-600, body.theme-aurora .text-gray-500 { color: #e0e7ff !important; }
+body.theme-aurora .border-b, body.theme-aurora .border-t { border-color: #818cf8 !important; }
+body.theme-aurora .shadow-md { box-shadow: 0 2px 8px 0 rgba(67,56,202,0.15) !important; }
+
+body.theme-solarized { background-color: #fdf6e3; color: #657b83; }
+body.theme-solarized .bg-white { background-color: #eee8d5 !important; }
+body.theme-solarized .text-gray-900, body.theme-solarized .text-gray-800, body.theme-solarized .text-gray-700, body.theme-solarized .text-gray-600, body.theme-solarized .text-gray-500 { color: #586e75 !important; }
+body.theme-solarized .border-b, body.theme-solarized .border-t { border-color: #b58900 !important; }
+body.theme-solarized .shadow-md { box-shadow: 0 2px 8px 0 rgba(181,137,0,0.08) !important; }
+
+body.theme-vibrant { background: linear-gradient(120deg, #0f2027 0%, #2c5364 100%); color: #f8fafc; }
+body.theme-vibrant .bg-white { background: linear-gradient(120deg, #43cea2 0%, #185a9d 100%) !important; }
+body.theme-vibrant .text-gray-900, body.theme-vibrant .text-gray-800, body.theme-vibrant .text-gray-700, body.theme-vibrant .text-gray-600, body.theme-vibrant .text-gray-500 { color: #f8fafc !important; }
+body.theme-vibrant .border-b, body.theme-vibrant .border-t { border-color: #f72585 !important; }
+body.theme-vibrant .shadow-md { box-shadow: 0 2px 8px 0 rgba(67,206,162,0.15) !important; }
+
+/* =========================
+   AJUSTES DE IMPRESIÓN
+   ========================= */
+@media print {
+    #action-bar { display: none !important; }
+    body, html {
+        background: #fff !important;
+        color: #18181b !important;
+        font-size: 14px !important;
+        zoom: 1 !important;
+        width: 100% !important;
+        min-width: 1024px !important;
+        max-width: 1024px !important;
+    }
+    .container {
+        max-width: 900px !important;
+        width: 900px !important;
+        margin: 0 auto !important;
+        background: #fff !important;
+        color: #18181b !important;
+        box-shadow: none !important;
+    }
+    .bg-white {
+        background: #fff !important;
+        color: #18181b !important;
+    }
+    .text-gray-900, .text-gray-800, .text-gray-700, .text-gray-600, .text-gray-500 {
+        color: #18181b !important;
+    }
+    .border-b, .border-t { border-color: #d1d5db !important; }
+    .shadow-md { box-shadow: none !important; }
+    body.dark, body.theme-aurora, body.theme-solarized, body.theme-vibrant {
+        background: #fff !important;
+        color: #18181b !important;
+    }
+}
+
+/* =========================
+   AJUSTES DE ESPACIADO Y TAMAÑO DE TEXTO
+   ========================= */
+section.bg-white {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+}
+section.bg-white > h2,
+section.bg-white > h3 {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+.mb-8 { margin-bottom: 1rem !important; }
+.p-6 { padding-top: 0.5rem !important; padding-bottom: 0.75rem !important; }
+.pb-2 { padding-bottom: 0.25rem !important; }
+/* Aumenta el tamaño de todos los textos pequeños */
+.text-xs {
+    font-size: 1rem !important;
+}
+</style>
+</head>
+<body>
+<div class="container mx-auto p-4 md:p-8 max-w-4xl">
+
+    <!-- =========================
+         HEADER (NOMBRE Y TÍTULO)
+         ========================= -->
+    <header class="sticky-header text-center mb-8 bg-white p-6 rounded-lg shadow-md relative">
+        <h1 class="font-extrabold text-gray-900 mb-2" style="font-size:1.944rem;">Hesvin Dario Molina Rios</h1>
+        <p class="text-sm md:text-sm text-gray-600 font-semibold" style="font-size:1.2em;">Desarrollador de Software | Diseñador Gráfico</p>
+    </header>
+
+    <!-- =========================
+         SECCIÓN CONTACTO
+         ========================= -->
+    <section id="contact" class="mb-8 bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-lg font-bold text-gray-700 mb-4 border-b pb-2">Contacto</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
+            <p>📞 +52 56 12704455</p>
+            <p>📧 drqbeat@gmail.com</p>
+            <p class="text-xs md:text-sm">📍 Mercadela No. 77, Colonia Lomas de San Miguel, Atizapán de Zaragoza, Estado de México, CP 52928</p>
+            <p>🔗 <a href="https://linkedin.com/in/drqbeat" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/drqbeat</a></p>
         </div>
-      </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">TestScada</div>
-      </div>
+    </section>
+
+    <!-- =========================
+         SECCIÓN PERFIL PROFESIONAL
+         ========================= -->
+    <section id="profile" class="mb-8 bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-lg font-bold text-gray-700 mb-4 border-b pb-2">Perfil Profesional</h2>
+        <p class="justify text-xs leading-relaxed">
+            Soy un profesional versátil con más de 10 años de experiencia en soluciones tecnológicas integrales. Especializado en desarrollo de software y diseño gráfico, mi pasión reside en integrar ambas disciplinas para construir proyectos técnicamente robustos, visualmente impactantes y fáciles de usar.
+        </p>
+        <p class="justify text-xs leading-relaxed mt-4">
+            Domino el ciclo de vida completo de un proyecto: desde la conceptualización y bocetos, el diseño de diagramas de flujo y bases de datos UML, hasta la planificación y seguimiento en herramientas como Microsoft Project, Jira y GitHub Projects, incluyendo la generación de toda la documentación necesaria.
+        </p>
+        <p class="justify text-xs leading-relaxed mt-4">
+            Me considero una persona creativa, orientada a la resolución de problemas y siempre comprometida con la innovación continua.
+        </p>
+    </section>
+
+    <!-- =========================
+         SECCIÓN HABILIDADES CLAVE
+         ========================= -->
+    <section id="skills" class="mb-8 bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-lg font-bold text-gray-700 mb-4 border-b pb-2">Habilidades Clave</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+                <h3 class="text-base font-bold text-gray-800 mb-2">Desarrollo de Software</h3>
+                <ul class="list-disc list-inside text-xs leading-relaxed space-y-1">
+                    <li>Lenguajes: HTML, CSS, JavaScript, C#, Python, SQL, Visual Basic.</li>
+                    <li>Bases de Datos: PostgreSQL, SQL Server, Polyhedra ABB, MySQL.</li>
+                    <li>Aplicaciones: Desarrollo de Sitios Web, Aplicaciones y Sistemas HMI/SCADA (ABB, AVEVA).</li>
+                    <li>Plataformas Cloud/DevOps: GitHub, Docker, Google Cloud.</li>
+                    <li>Sistemas Operativos: Linux (Ubuntu, Debian, Kali), Windows Server y Pro, MacOS, Android.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-base font-bold text-gray-800 mb-2">Diseño Gráfico y 3D</h3>
+                <ul class="list-disc list-inside text-xs leading-relaxed space-y-1">
+                    <li>Diseño Gráfico: Edición Vectorial y de imágenes, Suite Adobe avanzada, Diseño de Interfaces (UI/UX).</li>
+                    <li>Modelado y Renderizado 3D: Blender, AutoCAD, 3D Max, Inventfor, Revit, SketchUp.</li>
+                    <li>Animación Digital: Blender, After Effects, Inkscape, Gimp.</li>
+                    <li>Producción Audiovisual: Adobe Premiere, Adobe After Effects, Ableton Live, Blender, Resolume (Video Mapping).</li>
+                    <li>Diseño Arquitectónico: Creación de planos arquitectónicos, eléctricos, técnicos en 2D y 3D.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-base font-bold text-gray-800 mb-2">Gestión de Proyectos y Procesos</h3>
+                <ul class="list-disc list-inside text-xs leading-relaxed space-y-1">
+                    <li>Filosofía de operación de proyectos: concepción a implementación.</li>
+                    <li>Herramientas de Gestión: Microsoft Project, Jira, GitHub Projects.</li>
+                    <li>Análisis de Riesgos, Logística e Inventarios.</li>
+                    <li>Control de Versiones (Git, GitHub).</li>
+                    <li>Diseño de diagramas de flujo y procesos.</li>
+                    <li>Modelado de bases de datos (UML).</li>
+                    <li>Planificación y programación de tareas.</li>
+                    <li>Documentación técnica y operativa para proyectos.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+         SECCIÓN EXPERIENCIA PROFESIONAL
+         ========================= -->
+    <section id="experience" class="mb-8 bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-lg font-bold text-gray-700 mb-4 border-b pb-2">Experiencia Profesional</h2>
+
+        <div class="mb-6 pb-4 border-b last:border-b-0">
+                <h3 class="text-base font-bold text-gray-800">Integraciones y Automatización HOH</h3>
+                <p class="text-xs text-gray-600">Cadista / Desarrollador HMI/SCADA | NOV.2019 – ACTUAL</p>
+                <ul class="list-disc list-inside text-xs leading-relaxed mt-2 space-y-1">
+                        <li class="justify">Desarrollé e implementé funcionalidades clave en sistemas TMS-SCADA y Software HOH VOL para Control Volumétrico, mejorando significativamente la monitorización y gestión operativa del cliente, lo que aseguró el cumplimiento normativo (CRE Anexo 30 y 31).</li>
+                        <li class="justify">Colaboré en la creación de gráficos y simbología oficial para software HMI/SCADA, fusionando el diseño visual con la funcionalidad del sistema para una experiencia de usuario optimizada.</li>
+                        <li class="justify">Implementé control de versiones con GitHub, mejorando la gestión de código y la colaboración entre equipos de desarrollo mediante herramientas integradas de gestión de proyectos.</li>
+                        <li class="justify">Desarrollé documentación técnica especializada (manuales de operación, guías de seguimiento), optimizando la eficiencia y comunicación interna.</li>
+                        <li class="justify">Participé en la implementación de sistemas de supresión de gas y fuego, generando la documentación (planos, diagramas) conforme a estándares de Sempra, CFE y Pemex.</li>
+                </ul>
+        </div>
+
+        <div class="mb-6 pb-4 border-b last:border-b-0">
+                <h3 class="text-base font-bold text-gray-800">GRUPO ADDIST (Levi's)</h3>
+                <p class="text-xs text-gray-600">Auditor Interno | ENE.2018 – JUL.2018</p>
+                <ul class="list-disc list-inside text-xs leading-relaxed mt-2 space-y-1">
+                        <li class="justify">Optimicé la base de datos SQL con Scripts y Querys, resultando en mayor precisión y eficiencia en el manejo de la información de inventario.</li>
+                        <li class="justify">Dominé los conteos cíclicos de inventario, demostrando habilidades prácticas en logística y gestión de datos.</li>
+                </ul>
+        </div>
+
+        <div class="mb-6 pb-4 border-b last:border-b-0">
+                <h3 class="text-base font-bold text-gray-800">AVANTEC CRISALUDOM</h3>
+                <p class="text-xs text-gray-600">Proyectista de Espacios | MAR.2013 – NOV.2014</p>
+                <ul class="list-disc list-inside text-xs leading-relaxed mt-2 space-y-1">
+                        <li class="justify">Trabajé como Diseñador Gráfico y Proyectista en cancelería, estructuras de acero inoxidable, cristal templado y aluminio.</li>
+                        <li class="justify">Mis responsabilidades incluyeron atención al cliente, diseño de proyectos personalizados, gestión de personal y supervisión de materiales en obra, reflejando sólida capacidad de gestión y coordinación de proyectos.</li>
+                </ul>
+        </div>
+
+        <div class="mb-6 pb-4 border-b last:border-b-0">
+                <h3 class="text-base font-bold text-gray-800">D4 REALITY</h3>
+                <p class="text-xs text-gray-600">Gerente de Sucursal / Instructor de Cursos de Software y Diseño | ABR.2010 – MAY.2012</p>
+                <ul class="list-disc list-inside text-xs leading-relaxed mt-2 space-y-1">
+                        <li class="justify">Administré la sucursal ITESM CEM, siendo responsable de su operación y desarrollando habilidades de liderazgo y gestión administrativa.</li>
+                        <li class="justify">Impartí cursos y diplomados en software de diseño (Adobe Creative Suite, Autodesk), herramientas MS Office (Excel I, II, III, Project) y 3D MAX.</li>
+                        <li class="justify">Lideré el Diplomado en Diseño Gráfico, desarrollando currículos y fomentando la creatividad técnica en estudiantes.</li>
+                </ul>
+        </div>
+
+        <div class="mb-6 pb-4 border-b last:border-b-0">
+                <h3 class="text-base font-bold text-gray-800">HERCOVI</h3>
+                <p class="text-xs text-gray-600">Proyectista de Espacios | SEP.2009 – ABR.2010</p>
+                <ul class="list-disc list-inside text-xs leading-relaxed mt-2 space-y-1">
+                        <li class="justify">Desempeñé el rol de Diseñador Gráfico, creando diseños visuales, elaborando presupuestos y supervisando obras.</li>
+                        <li class="justify">Utilicé SketchUp y AutoCAD para diseño arquitectónico y cálculo de materiales, optimizando recursos y demostrando planificación de proyectos.</li>
+                        <li class="justify">Realicé visitas a sitios de construcción para levantamientos de avances, gestionando resurtido de materiales y coordinando personal, lo que subraya mis habilidades en logística y supervisión de proyectos.</li>
+                </ul>
+        </div>
+
+        <div class="mb-6 pb-4 border-b last:border-b-0">
+                <h3 class="text-base font-bold text-gray-800">GIEICOM</h3>
+                <p class="text-xs text-gray-600">Documentador CAD | ABR.2008 – DIC.2008</p>
+                <ul class="list-disc list-inside text-xs leading-relaxed mt-2 space-y-1">
+                        <li class="justify">Gestioné la revisión y almacenamiento de memorias técnicas, la generación de manuales para ingenierías y el levantamiento de datos en instalaciones.</li>
+                        <li class="justify">Utilicé AutoCAD para dibujo técnico y Excel para la organización de información, asegurando la integridad y accesibilidad de la documentación de proyectos.</li>
+                </ul>
+        </div>
+
+        <div class="mb-6 pb-4 last:border-b-0">
+                <h3 class="text-base font-bold text-gray-800">GATEWAY TELECOM</h3>
+                <p class="text-xs text-gray-600">Ingeniero de Servicio Técnico | ABR.2008 – DIC.2008</p>
+                <ul class="list-disc list-inside text-xs leading-relaxed mt-2 space-y-1">
+                        <li class="justify">Brindé soporte técnico y participé en la resolución de tickets de servicio durante un proyecto de migración de red y equipos de Voz y Datos para el IMSS.</li>
+                        <li class="justify">Elaboré memorias técnicas detalladas con ingeniería de sitio, especificaciones de equipos, cálculos y planos estructurales/eléctricos de cada instalación, mostrando capacidad para documentación técnica exhaustiva.</li>
+                </ul>
+        </div>
+    </section>
+
+    <!-- =========================
+         SECCIÓN EDUCACIÓN Y FORMACIÓN
+         ========================= -->
+    <section id="education" class="mb-8 bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-lg font-bold text-gray-700 mb-4 border-b pb-2">Educación y Formación</h2>
+        <ul class="list-disc list-inside text-xs leading-relaxed space-y-1">
+            <li>Certificación en Autocad Electrical | UNIVERCAD | 2025</li>
+            <li>Ingeniería en Desarrollo de Software | UnADM | 2015-2017</li>
+            <li>Técnico en Diseño Gráfico | CBT Tlalnepantla | 2003-2006</li>
+            <li>Diplomado en Diseño Gráfico | D4 Reality | 2010-2012</li>
+            <li>Diplomado en Animación y Arte Digital | D4 Reality | 2010-2012</li>
+            <li>Cursos Coursera: PostgreSQL, Pentesting, Wireshark, .NET, C#, Python, Encriptación | 2020 - 2024.</li>
+            <li>Otros Cursos: Excel Avanzado, SQL, Access, Project, GitHub, Unity 3D, Blender, Realidad Aumentada.</li>
+        </ul>
+    </section>
+    
+    <!-- =========================
+         SECCIÓN IDIOMAS
+         ========================= -->
+    <section id="languages" class="mb-8 bg-white p-6 rounded-lg shadow-md">   
+        <h2 class="text-lg font-bold text-gray-700 mb-4 border-b pb-2">Idiomas</h2>
+        <ul class="list-disc list-inside text-xs leading-relaxed space-y-1">
+            <li>Español: Nativo</li>
+            <li>Inglés: Intermedio (B1)</li>
+        </ul>       
+    </section>
+
+    <!-- =========================
+         BARRA DE ACCIONES (DESCARGA Y TEMA)
+         ========================= -->
+    <div id="action-bar" class="flex flex-col md:flex-row justify-center items-center gap-4 mt-8 mb-4">
+        <button id="download-pdf" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow transition duration-200 text-base">
+            Descargar CV en PDF
+        </button>
+        <button id="theme-toggle" class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg shadow transition duration-200 text-base">
+            Cambiar Tema
+        </button>
     </div>
-    <script>
+</div>
 
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      var warningBanner = document.querySelector("#unity-warning");
+<!-- =========================
+     SCRIPTS (PDF Y TEMAS)
+     ========================= -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+// Descargar PDF (siempre en resolución grande y sin botones)
+document.getElementById('download-pdf').addEventListener('click', function () {
+    const cv = document.querySelector('.container');
+    const actionBar = document.getElementById('action-bar');
+    const originalWidth = cv.style.width;
+    const originalMaxWidth = cv.style.maxWidth;
 
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
-      function unityShowBanner(msg, type) {
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+    // Oculta la barra de botones antes de capturar
+    actionBar.style.display = 'none';
+    cv.style.width = '900px';
+    cv.style.maxWidth = '900px';
+
+    const a4Width = 595.28; // pt
+    const a4Height = 841.89; // pt
+    const marginTop = 40;    // margen superior en pt
+    const marginBottom = 40; // margen inferior en pt
+    const usableHeight = a4Height - marginTop - marginBottom;
+    const scale = a4Width / 900;
+
+    html2canvas(cv, {
+        scale: scale * 2,
+        useCORS: true,
+        backgroundColor: '#f8fafc',
+        scrollY: -window.scrollY
+    }).then(canvas => {
+        // Restaura la barra de botones y estilos originales
+        actionBar.style.display = '';
+        cv.style.width = originalWidth;
+        cv.style.maxWidth = originalMaxWidth;
+
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new window.jspdf.jsPDF({
+            orientation: 'portrait',
+            unit: 'pt',
+            format: 'letter'
+        });
+
+        const imgWidth = a4Width;
+        const imgHeight = canvas.height * imgWidth / canvas.width;
+        let heightLeft = imgHeight;
+        let position = marginTop;
+
+        const xOffset = (a4Width - imgWidth) / 2;
+
+        pdf.addImage(imgData, 'PNG', xOffset, position, imgWidth, imgHeight);
+
+        heightLeft -= usableHeight;
+
+        while (heightLeft > 0) {
+            position -= usableHeight;
+            pdf.addPage();
+            pdf.addImage(imgData, 'PNG', xOffset, position, imgWidth, imgHeight);
+            heightLeft -= usableHeight;
         }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 5000);
-        }
-        updateBannerVisibility();
-      }
 
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/daroMR.github.io.loader.js";
-      var config = {
-        dataUrl: buildUrl + "/daroMR.github.io.data.gz",
-        frameworkUrl: buildUrl + "/daroMR.github.io.framework.js.gz",
-        codeUrl: buildUrl + "/daroMR.github.io.wasm.gz",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "TestScada",
-        productVersion: "0.1",
-        showBanner: unityShowBanner,
-      };
+        pdf.save('CV_Hesvin_Dario_Molina_Rios_2025.pdf');
+    });
+});
 
-      // By default, Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
+// Cambiar tema cíclicamente
+const themes = ['', 'dark', 'theme-aurora', 'theme-solarized', 'theme-vibrant'];
+let themeIndex = 0;
+const body = document.body;
+const themeBtn = document.getElementById('theme-toggle');
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
+function applyTheme(index) {
+    body.classList.remove('dark', 'theme-aurora', 'theme-solarized', 'theme-vibrant');
+    if (themes[index]) body.classList.add(themes[index]);
+}
 
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-        container.className = "unity-mobile";
-        canvas.className = "unity-mobile";
+themeBtn.addEventListener('click', () => {
+    themeIndex = (themeIndex + 1) % themes.length;
+    applyTheme(themeIndex);
+});
 
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
-
-
-      } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
-
-      loadingBar.style.display = "block";
-
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-                loadingBar.style.display = "none";
-                fullscreenButton.onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
-              }).catch((message) => {
-                alert(message);
-              });
-            };
-
-      document.body.appendChild(script);
-
-    </script>
-  </body>
+// Siempre tema claro al imprimir
+window.addEventListener('beforeprint', () => {
+    body.classList.remove('dark', 'theme-aurora', 'theme-solarized', 'theme-vibrant');
+});
+</script>
+</body>
 </html>
