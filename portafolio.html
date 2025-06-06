@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Menú Reel</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portafolio.css">
+</head>
+<body>
+    <header>
+        <h1>Portafolio - Menú Reel</h1>
+    </header>
+    <nav>
+        <a class="menu-link" href="reel.html">Ver Reel Principal</a>
+        <a class="menu-link" href="proyectos.html">Proyectos Destacados</a>
+        <a class="menu-link" href="galeria.html">Galería Multimedia</a>
+        <a class="menu-link" href="contacto.html">Contacto</a>
+        <a class="menu-link" href="index.html">Volver al Inicio</a>
+    </nav>
+
+    <!-- Carrusel de trabajos de diseño gráfico -->
+    <section class="carrusel-section">
+        <h2 class="carrusel-title">Galería Destacada</h2>
+        <div class="carrusel-container">
+            <button class="carrusel-btn" id="prevBtn">&#8592;</button>
+            <div class="carrusel-view">
+                <img id="carrusel-img" src="galeria/ejemplo1.jpg" alt="Trabajo de diseño gráfico 1">
+                <div id="carrusel-caption" class="carrusel-caption">Nombre del trabajo 1</div>
+            </div>
+            <button class="carrusel-btn" id="nextBtn">&#8594;</button>
+        </div>
+    </section>
+
+    <script src="portafolio.js"></script>
+</body>
+</html>
