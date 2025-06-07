@@ -3,36 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio - Menú Reel</title>
+    <title>Portafolio - Hesvin Darío Molina Ríos</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="portafolio.css">
+    <style>
+        body {
+            background: #181818;
+            color: #fff;
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .center-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+        .construccion {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #b0bec5; /* gris claro */
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .btn-volver {
+            background: #b0bec5; /* gris claro */
+            color: #181818;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 1rem;
+        }
+        .btn-volver:hover {
+            background: #757575; /* gris oscuro */
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Portafolio - Menú Reel</h1>
+        <h1 style="text-align:center; margin: 2rem 0 1rem 0;">Portafolio</h1>
     </header>
-    <nav>
-        <a class="menu-link" href="reel.html">Ver Reel Principal</a>
-        <a class="menu-link" href="proyectos.html">Proyectos Destacados</a>
-        <a class="menu-link" href="galeria.html">Galería Multimedia</a>
-        <a class="menu-link" href="contacto.html">Contacto</a>
-        <a class="menu-link" href="index.html">Volver al Inicio</a>
-    </nav>
-
-    <!-- Carrusel/Galería de trabajos destacados de diseño gráfico -->
-    <section class="carrusel-section">
-        <h2 class="carrusel-title">Galería Destacada</h2>
-        <div class="carrusel-container">
-            <button class="carrusel-btn" id="prevBtn">&#8592;</button>
-            <div class="carrusel-view">
-                <img id="carrusel-img" src="galeria/ejemplo1.jpg" alt="Trabajo de diseño gráfico 1">
-                <div id="carrusel-caption" class="carrusel-caption">Nombre del trabajo 1</div>
+    <main class="center-content">
+        <div>
+            <div class="construccion">
+                🚧 Esta sección está en construcción.<br>
+                Próximamente podrás ver mi galería de diseños y videos destacados.
             </div>
-            <button class="carrusel-btn" id="nextBtn">&#8594;</button>
+            <button class="btn-volver" onclick="window.location.href='index.html'">
+                Volver al inicio
+            </button>
         </div>
-    </section>
-
-    <!-- Carga el JS del carrusel al final del body -->
-    <script src="portafolio.js"></script>
+    </main>
 </body>
 </html>
