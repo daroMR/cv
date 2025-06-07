@@ -1,4 +1,7 @@
-/* ...existing code... */
+/* Estilos generales para el portafolio */
+/* ... */
+
+/* Carrusel de trabajos destacados */
 
 .carrusel-section {
     margin: 40px auto 0 auto;
@@ -67,6 +70,8 @@
     background: #00bcd4;
     color: #181818;
 }
+
+/* Responsive design para dispositivos móviles */
 @media (max-width: 600px) {
     .carrusel-view {
         width: 98vw;
