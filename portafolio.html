@@ -5,26 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio - Hesvin Darío Molina Ríos</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <!-- LightGallery CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css">
     <link rel="stylesheet" href="css/portafolio.css">
     <style>
-        /* ...existing styles... */
+        body {
+            background: #181818;
+            color: #fff;
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0 1rem 0;
+            gap: 1rem;
+        }
+        .tab-btn {
+            background: #23272f;
+            color: #b0bec5;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            outline: none;
+        }
+        .tab-btn.active, .tab-btn:focus, .tab-btn:hover {
+            background: #b0bec5;
+            color: #181818;
+        }
+        .gallery-section {
+            display: none;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .gallery-section.active {
+            display: block;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 1rem;
+        }
+        .gallery-item {
+            background: #23272f;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px #0005;
+            transition: transform 0.2s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+        }
+        .gallery-item:hover, .gallery-item:focus {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 4px 16px #0007;
+        }
+        .gallery-thumb {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #222;
+            border-bottom: 1px solid #333;
+        }
+        .gallery-title {
+            padding: 1rem 0.5rem 0.5rem 0.5rem;
+            font-size: 1rem;
+            color: #b0bec5;
+            text-align: center;
+        }
+        .btn-volver {
+            background: #b0bec5;
+            color: #181818;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin: 2rem auto 1rem auto;
+            display: block;
+        }
+        .btn-volver:hover, .btn-volver:focus {
+            background: #757575;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1 style="text-align:center; margin: 2rem 0 1rem 0;">Portafolio</h1>
     </header>
-    <main class="center-content">
-        <div>
-            <div class="construccion">
-                🚧 Esta sección está en construcción.<br>
-                Próximamente podrás ver mi galería de diseños y videos destacados.
-            </div>
-            <button class="btn-volver" onclick="window.location.href='../index.html'">
-                Volver al inicio
-            </button>
+    <nav class="tabs" role="tablist">
+        <button type="button" class="tab-btn active" data-tab="imagenes" aria-selected="true" aria-controls="imagenes" id="tab-imagenes">Imágenes</button>
+        <button type="button" class="tab-btn" data-tab="pdfs" aria-selected="false" aria-controls="pdfs" id="tab-pdfs">PDFs</button>
+    </nav>
+    <!-- Galería de Imágenes -->
+    <section id="imagenes" class="gallery-section active" role="tabpanel" aria-labelledby="tab-imagenes">
+        <div id="gallery-imagenes" class="gallery-grid">
+            <a href="galeria/ejemplo de croquis de ubicacion en tms para tad olmeca en dos bocas tabasco.gif" class="gallery-item" data-lg-size="1400-933" data-sub-html="<h4>Croquis de ubicación TMS</h4>">
+                <img class="gallery-thumb" src="galeria/ejemplo de croquis de ubicacion en tms para tad olmeca en dos bocas tabasco.gif" alt="Croquis de ubicación TMS">
+                <div class="gallery-title">Croquis de ubicación TMS</div>
+            </a>
+            <a href="galeria/ejemplo de diseno de logotipo.jpg" class="gallery-item" data-lg-size="1400-933" data-sub-html="<h4>Diseño de logotipo</h4>">
+                <img class="gallery-thumb" src="galeria/ejemplo de diseno de logotipo.jpg" alt="Diseño de logotipo">
+                <div class="gallery-title">Diseño de logotipo</div>
+            </a>
+            <a href="galeria/ejemplo de diseno de logotipo - copia.jpg" class="gallery-item" data-lg-size="1400-933" data-sub-html="<h4>Diseño de logotipo (variante)</h4>">
+                <img class="gallery-thumb" src="galeria/ejemplo de diseno de logotipo - copia.jpg" alt="Diseño de logotipo variante">
+                <div class="gallery-title">Diseño de logotipo (variante)</div>
+            </a>
         </div>
-    </main>
-    <script src="js/portafolio.js"></script>
+    </section>
+    <!-- Galería de PDFs -->
+    <section id="pdfs" class="gallery-section" role="tabpanel" aria-labelledby="tab-pdfs">
+        <div id="gallery-pdfs" class="gallery-grid">
+            <a href="galeria/ejemplo de diagrama de armado para estructuras y ductos subterraneos .pdf" class="gallery-item" target="_blank" rel="noopener" data-sub-html="<h4>Diagrama de armado</h4>">
+                <img class="gallery-thumb" src="galeria/pdf_thumb.png" alt="Diagrama de armado">
+                <div class="gallery-title">Diagrama de armado</div>
+            </a>
+            <a href="galeria/ejemplo de diseno de producto con inyeccion de plastico - Protecctor para Botonera_1.pdf" class="gallery-item" target="_blank" rel="noopener" data-sub-html="<h4>Diseño de producto 1</h4>">
+                <img class="gallery-thumb" src="galeria/pdf_thumb.png" alt="Diseño de producto 1">
+                <div class="gallery-title">Diseño de producto 1</div>
+            </a>
+            <a href="galeria/ejemplo de diseno de producto con inyeccion de plastico - Protecctor para Botonera_2.pdf" class="gallery-item" target="_blank" rel="noopener" data-sub-html="<h4>Diseño de producto 2</h4>">
+                <img class="gallery-thumb" src="galeria/pdf_thumb.png" alt="Diseño de producto 2">
+                <div class="gallery-title">Diseño de producto 2</div>
+            </a>
+        </div>
+    </section>
+    <button class="btn-volver" id="btn-volver">
+        Volver al inicio
+    </button>
+    <!-- LightGallery JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/thumbnail/lg-thumbnail.umd.min.js"></script>
+    <script>
+        // Tabs para cambiar entre imágenes y PDFs
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (this.classList.contains('active')) return;
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                this.classList.add('active');
+                this.setAttribute('aria-selected', 'true');
+                document.querySelectorAll('.gallery-section').forEach(sec => sec.classList.remove('active'));
+                const tab = this.dataset.tab;
+                const section = document.getElementById(tab);
+                if (section) section.classList.add('active');
+            });
+        });
+
+        // Inicializa LightGallery para imágenes
+        lightGallery(document.getElementById('gallery-imagenes'), {
+            plugins: [lgThumbnail],
+            speed: 400,
+            selector: '.gallery-item'
+        });
+
+        // PDFs: solo abrirán en nueva pestaña, no se inicializa LightGallery para evitar conflictos de click
+        // Si quieres vista previa de PDFs en modal, necesitarías un visor PDF embebido
+
+        // Botón volver al inicio
+        document.getElementById('btn-volver').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    </script>
 </body>
 </html>
