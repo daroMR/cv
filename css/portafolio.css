@@ -71,6 +71,41 @@
     color: #181818;
 }
 
+/* Miniaturas para galería */
+.gallery-thumb {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: #222;
+    border-bottom: 1px solid #333;
+    border-radius: 8px;
+    transition: box-shadow 0.2s;
+}
+.gallery-item:hover .gallery-thumb {
+    box-shadow: 0 4px 16px #0007;
+}
+.gallery-title {
+    text-decoration: none;
+    font-size: 0.95rem;
+    color: #888;
+    text-align: center;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+}
+/* Fin miniaturas galería */
+
+a.gallery-item, .gallery-grid a {
+    color: #888;
+    text-decoration: none;
+}
+a.gallery-item:visited, .gallery-grid a:visited {
+    color: #888;
+    text-decoration: none;
+}
+a.gallery-item:hover, .gallery-grid a:hover {
+    color: #aaa;
+    text-decoration: none;
+}
+
 /* Responsive design para dispositivos móviles */
 @media (max-width: 600px) {
     .carrusel-view {
