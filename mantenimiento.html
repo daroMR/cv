@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Hesvin Darío Molina Ríos</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg:#0f1113;
+            --card:#0f1113;
+            --muted:#9aa3a8;
+            --accent:#d9d7d0;
+        }
+        *{box-sizing:border-box}
+        body {
+            background: linear-gradient(180deg,#0b0c0d 0%, #131416 100%);
+            color: #fff;
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+        .maintenance-wrapper{
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:2rem;
+        }
+        .card{
+            max-width:880px;
+            width:100%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding:3.2rem 2.4rem;
+            border-radius:12px;
+            display:flex;
+            gap:2rem;
+            align-items:center;
+            box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+        }
+        .visual{
+            flex:0 0 160px;
+            height:160px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border-radius:8px;
+            background: linear-gradient(135deg, rgba(217,215,208,0.06), rgba(255,255,255,0.02));
+            border:1px solid rgba(255,255,255,0.03);
+        }
+        /* Simple abstract architectural icon */
+        .visual svg{width:110px;height:110px;display:block;color:var(--accent);}
+        .info{flex:1}
+        .title{
+            font-size:1.6rem;
+            letter-spacing:0.02em;
+            color:var(--accent);
+            margin:0 0 0.25rem 0;
+            font-weight:700;
+        }
+        .subtitle{
+            margin:0 0 0.8rem 0;
+            color:var(--muted);
+            font-size:0.98rem;
+            line-height:1.4;
+        }
+        .meta{
+            display:flex;
+            gap:1rem;
+            align-items:center;
+            margin-top:0.8rem;
+        }
+        .btn{
+            background:transparent;
+            color:var(--accent);
+            border:1px solid rgba(255,255,255,0.06);
+            padding:0.6rem 1rem;
+            border-radius:8px;
+            text-decoration:none;
+            font-weight:600;
+            font-size:0.95rem;
+        }
+        .btn:hover{background:rgba(255,255,255,0.02)}
+        .hint{color:var(--muted);font-size:0.86rem}
+        @media (max-width:720px){
+            .card{flex-direction:column;align-items:flex-start}
+            .visual{width:100%;height:120px}
+        }
+        /* Ocultar la galería original mientras está en mantenimiento */
+        .gallery-section, .btn-volver, .gallery-grid {display:none !important}
+        header h1{color:transparent}
+    </style>
+</head>
+<body>
+    <main class="maintenance-wrapper">
+        <div class="card" role="status" aria-live="polite">
+            <div class="visual" aria-hidden="true">
+                <!-- Abstract architectural lines -->
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="6" y="74" width="88" height="12" rx="2" fill="rgba(255,255,255,0.03)"/>
+                    <path d="M14 74 L14 30 L36 18 L58 26 L74 18 L86 26" stroke="rgba(217,215,208,0.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 74 L22 46" stroke="rgba(217,215,208,0.6)" stroke-width="1.6"/>
+                    <path d="M42 74 L42 58" stroke="rgba(217,215,208,0.6)" stroke-width="1.6"/>
+                    <path d="M62 74 L62 50" stroke="rgba(217,215,208,0.6)" stroke-width="1.6"/>
+                </svg>
+            </div>
+            <div class="info">
+                <h1 class="title">Portafolio — En mantenimiento</h1>
+                <p class="subtitle">Estoy realizando una actualización del portafolio. Volveré pronto con nuevos renders, publicidad, planos y documentación técnica.</p>
+                <div class="meta">
+                    <a class="btn" href="index.html">Volver al inicio</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Galería original; ocultada mientras esté en mantenimiento. Para reactivar, eliminar el estilo display:none en CSS o comentar esta sección -->
+    <!--
+    (Galería y contenido original aquí)
+    -->
+
+</body>
+</html>
