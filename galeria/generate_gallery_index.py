@@ -1,6 +1,7 @@
-#!/usr/bin/env python3
+ï»¿#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-Genera `gallery_index.json` en la carpeta `galeria/` con la lista de imágenes y PDFs.
+Genera `gallery_index.json` en la carpeta `galeria/` con la lista de imï¿½genes y PDFs.
 Usa nombres URL-encoded para `orig` y `thumb` rutas, y proporciona `display` el nombre decodificado.
 
 Uso:
