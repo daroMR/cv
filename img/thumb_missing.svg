@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="324" viewBox="0 0 200 324" role="img" aria-label="Miniatura faltante">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#111213"/>
+      <stop offset="1" stop-color="#0b0c0d"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="324" rx="8" fill="url(#g)" />
+  <g transform="translate(20,36)" fill="none" stroke="#3a3f42" stroke-width="2">
+    <rect x="0" y="0" width="160" height="232" rx="6" />
+    <path d="M0 44h160" stroke="#2f3436" />
+    <path d="M16 80l32-32 48 48 24-24 40 40" stroke="#495057" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <text x="100" y="290" fill="#7e8689" font-family="Montserrat, Arial, sans-serif" font-size="12" text-anchor="middle">miniatura faltante</text>
+</svg>

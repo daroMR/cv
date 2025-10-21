@@ -1,126 +1,260 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio - Hesvin Darío Molina Ríos</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
-    <style>
-        :root{
-            --bg:#0f1113;
-            --card:#0f1113;
-            --muted:#9aa3a8;
-            --accent:#d9d7d0;
-        }
-        *{box-sizing:border-box}
-        body {
-            background: linear-gradient(180deg,#0b0c0d 0%, #131416 100%);
-            color: #fff;
-            font-family: 'Montserrat', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-        }
-        .maintenance-wrapper{
-            min-height:100vh;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            padding:2rem;
-        }
-        .card{
-            max-width:880px;
-            width:100%;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.05);
-            padding:3.2rem 2.4rem;
-            border-radius:12px;
-            display:flex;
-            gap:2rem;
-            align-items:center;
-            box-shadow: 0 6px 30px rgba(2,6,23,0.6);
-        }
-        .visual{
-            flex:0 0 160px;
-            height:160px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            border-radius:8px;
-            background: linear-gradient(135deg, rgba(217,215,208,0.06), rgba(255,255,255,0.02));
-            border:1px solid rgba(255,255,255,0.03);
-        }
-        /* Simple abstract architectural icon */
-        .visual svg{width:110px;height:110px;display:block;color:var(--accent);}
-        .info{flex:1}
-        .title{
-            font-size:1.6rem;
-            letter-spacing:0.02em;
-            color:var(--accent);
-            margin:0 0 0.25rem 0;
-            font-weight:700;
-        }
-        .subtitle{
-            margin:0 0 0.8rem 0;
-            color:var(--muted);
-            font-size:0.98rem;
-            line-height:1.4;
-        }
-        .meta{
-            display:flex;
-            gap:1rem;
-            align-items:center;
-            margin-top:0.8rem;
-        }
-        .btn{
-            background:transparent;
-            color:var(--accent);
-            border:1px solid rgba(255,255,255,0.06);
-            padding:0.6rem 1rem;
-            border-radius:8px;
-            text-decoration:none;
-            font-weight:600;
-            font-size:0.95rem;
-        }
-        .btn:hover{background:rgba(255,255,255,0.02)}
-        .hint{color:var(--muted);font-size:0.86rem}
-        @media (max-width:720px){
-            .card{flex-direction:column;align-items:flex-start}
-            .visual{width:100%;height:120px}
-        }
-        /* Ocultar la galería original mientras está en mantenimiento */
-        .gallery-section, .btn-volver, .gallery-grid {display:none !important}
-        header h1{color:transparent}
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portafolio — Hesvin Darío Molina Ríos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0c0d;--card:#0f1113;--muted:#9aa3a8;--accent:#d9d7d0;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Montserrat,system-ui,Arial;background:var(--bg);color:var(--accent);-webkit-font-smoothing:antialiased}
+    .container{max-width:1100px;margin:2rem auto;padding:1rem}
+    header{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+    h1{font-weight:700;margin:0;font-size:1.1rem;color:#fff}
+
+    .controls{display:flex;gap:0.6rem;align-items:center}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent);padding:0.45rem 0.7rem;border-radius:8px;cursor:pointer;font-weight:600}
+    .btn.active{background:rgba(255,255,255,0.03)}
+
+    /* Masonry wall */
+    .wall{column-count:4;column-gap:1rem}
+    .tile{display:inline-block;width:100%;margin:0 0 1rem;border-radius:8px;overflow:hidden;background:var(--card);box-shadow:0 6px 24px rgba(0,0,0,0.6);transition:transform .18s ease}
+    .tile:hover{transform:translateY(-6px)}
+    .tile img{width:100%;height:auto;display:block;background:#0b0c0d}
+    .tile .caption{padding:0.5rem 0.6rem;color:var(--muted);font-size:0.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+    @media(max-width:1000px){.wall{column-count:3}}
+    @media(max-width:700px){.wall{column-count:2}}
+    @media(max-width:420px){.wall{column-count:1}}
+
+    /* Carousel */
+    .carousel{position:relative;background:var(--card);border-radius:10px;padding:1rem;display:flex;align-items:center;justify-content:center;min-height:320px;margin-bottom:1rem}
+    .carousel img{max-width:100%;max-height:70vh;border-radius:8px;display:block;box-shadow:0 18px 60px rgba(0,0,0,0.7)}
+    .carousel .nav{position:absolute;top:50%;width:100%;display:flex;justify-content:space-between;transform:translateY(-50%);pointer-events:none}
+    .carousel button{pointer-events:auto;background:rgba(255,255,255,0.04);border:0;color:var(--accent);padding:0.5rem 0.8rem;border-radius:6px;cursor:pointer}
+    .meta{margin-top:0.6rem;color:var(--muted);text-align:center}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;z-index:1200;padding:20px}
+    .lightbox img{max-width:96%;max-height:92%;border-radius:8px}
+    .lb-caption{position:absolute;bottom:36px;color:#ddd;font-size:14px}
+    .lb-nav{position:absolute;left:12px;right:12px;top:50%;display:flex;justify-content:space-between;transform:translateY(-50%);pointer-events:none}
+    .lb-nav button{pointer-events:auto;background:rgba(255,255,255,0.06);border:0;color:var(--accent);padding:0.6rem;border-radius:6px}
+
+    /* PDFs list */
+    .pdfs{margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:0.6rem}
+    .pdf-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent);padding:0.45rem 0.7rem;border-radius:8px;text-decoration:none;font-size:0.95rem}
+
+    footer{margin-top:2rem;color:var(--muted);font-size:0.9rem;text-align:center}
+  </style>
 </head>
 <body>
-    <main class="maintenance-wrapper">
-        <div class="card" role="status" aria-live="polite">
-            <div class="visual" aria-hidden="true">
-                <!-- Abstract architectural lines -->
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <rect x="6" y="74" width="88" height="12" rx="2" fill="rgba(255,255,255,0.03)"/>
-                    <path d="M14 74 L14 30 L36 18 L58 26 L74 18 L86 26" stroke="rgba(217,215,208,0.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M22 74 L22 46" stroke="rgba(217,215,208,0.6)" stroke-width="1.6"/>
-                    <path d="M42 74 L42 58" stroke="rgba(217,215,208,0.6)" stroke-width="1.6"/>
-                    <path d="M62 74 L62 50" stroke="rgba(217,215,208,0.6)" stroke-width="1.6"/>
-                </svg>
-            </div>
-            <div class="info">
-                <h1 class="title">Portafolio — En mantenimiento</h1>
-                <p class="subtitle">Estoy realizando una actualización del portafolio. Volveré pronto con nuevos renders, publicidad, planos y documentación técnica.</p>
-                <div class="meta">
-                    <a class="btn" href="index.html">Volver al inicio</a>
-                </div>
-            </div>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Portafolio — Hesvin D. Molina R.</h1>
+      </div>
+    </header>
+
+    <main>
+      <!-- PDFs first -->
+      <section id="pdf-area">
+        <h2 style="color:#fff;font-size:1rem;margin-top:0">Documentos (PDF)</h2>
+        <div id="pdf-list" class="pdfs"></div>
+      </section>
+
+      <section id="gallery-area">
+        <!-- Carousel (now above wall) -->
+        <div id="carousel" class="carousel">
+          <div style="color:var(--muted)">Cargando imágenes...</div>
         </div>
+        <div id="carousel-meta" class="meta"></div>
+
+        <!-- Wall below, always visible -->
+        <div id="wall" class="wall" aria-live="polite"></div>
+      </section>
+
     </main>
 
-    <!-- Galería original; ocultada mientras esté en mantenimiento. Para reactivar, eliminar el estilo display:none en CSS o comentar esta sección -->
-    <!--
-    (Galería y contenido original aquí)
-    -->
+    <footer>Presiona una imagen para ampliar (se abre en la misma página).</footer>
+  </div>
 
+  <script>
+  // Lightweight client-side gallery for static servers (python http.server)
+  async function listDirFiles(dir){
+    if(!dir.endsWith('/')) dir += '/';
+    const res = await fetch(dir);
+    if(!res.ok) throw new Error('No se puede acceder al directorio: ' + dir);
+    const text = await res.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, 'text/html');
+    // Extract hrefs from directory listing
+    const hrefs = Array.from(doc.querySelectorAll('a')).map(a=>a.getAttribute('href')).filter(h=>h && h !== '../');
+    const imagesExt = ['.png','.jpg','.jpeg','.gif','.webp','.bmp','.tiff','.svg'];
+    const pdfExt = ['.pdf'];
+    const images = [];
+    const pdfs = [];
+    for(const h of hrefs){
+      if(h.endsWith('/')) continue;
+      const lower = h.toLowerCase();
+      if(imagesExt.some(e=>lower.endsWith(e))) images.push(h);
+      else if(pdfExt.some(e=>lower.endsWith(e))) pdfs.push(h);
+    }
+    return {images, pdfs};
+  }
+
+  // Check existence of thumb files via HEAD; base is decoded filename without extension
+  async function findThumb(dir, baseDecoded){
+    const encodedBase = encodeURIComponent(baseDecoded);
+    const candidates = [
+      `${dir}thumbs/prev_${encodedBase}.png`,
+      `${dir}thumbs/prev_${encodedBase}.gif`,
+      `${dir}thumbs/prev_${encodedBase}.svg`,
+      `${dir}thumbs/prev_${encodedBase}.jpg`
+    ];
+    for(const c of candidates){
+      try{
+        const r = await fetch(c, {method:'HEAD'});
+        if(r.ok) return c;
+      }catch(e){/*ignore*/}
+    }
+    return null;
+  }
+
+  const GALLERY_DIR = 'galeria/';
+  let images = [];
+
+  // Simple lazy loader using IntersectionObserver
+  const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const img = e.target;
+        const src = img.dataset.src;
+        if(src){ img.src = src; img.removeAttribute('data-src'); }
+        io.unobserve(img);
+      }
+    });
+  }, {rootMargin: '200px'}) : null;
+
+  async function loadGallery(){
+    try{
+      const listing = await listDirFiles(GALLERY_DIR);
+      const imgFiles = listing.images.sort();
+      const pdfFiles = listing.pdfs.sort();
+
+      images = [];
+      for(const rawHref of imgFiles){
+        const decodedName = decodeURIComponent(rawHref);
+        const base = decodedName.replace(/\.[^/.]+$/, '');
+        const orig = GALLERY_DIR + rawHref; // already encoded in listing
+        const thumb = await findThumb(GALLERY_DIR, base);
+        images.push({name: decodedName, orig, thumb});
+      }
+
+      renderWall();
+      initCarousel();
+      renderPDFs(pdfFiles);
+    }catch(err){
+      console.error(err);
+      document.getElementById('wall').innerHTML = '<div style="padding:2rem;color:var(--muted)">No se pudo cargar la galería. Asegura que el servidor está sirviendo la carpeta "galeria/" con directory listing.</div>';
+    }
+  }
+
+  function createImgElement(src, dataSrc, alt){
+    const im = document.createElement('img');
+    im.alt = alt;
+    // lightweight placeholder SVG as src
+    im.src = 'img/thumb_missing.svg';
+    if(dataSrc){ im.setAttribute('data-src', dataSrc); if(io) io.observe(im); else im.src = dataSrc; }
+    else if(src) im.src = src;
+    im.loading = 'lazy';
+    return im;
+  }
+
+  function renderWall(){
+    const wall = document.getElementById('wall');
+    wall.innerHTML = '';
+    images.forEach(img =>{
+      const tile = document.createElement('div'); tile.className='tile';
+      const a = document.createElement('a'); a.href = img.orig; a.onclick = (e)=>{ e.preventDefault(); openLightbox(img); };
+      const dataSrc = img.thumb ? img.thumb : img.orig;
+      const im = createImgElement(null, dataSrc, img.name);
+      a.appendChild(im);
+      const cap = document.createElement('div'); cap.className='caption'; cap.textContent = img.name.replace(/\.[^/.]+$/,'');
+      tile.appendChild(a); tile.appendChild(cap);
+      wall.appendChild(tile);
+    });
+  }
+
+  // Carousel implementation with lazy current image
+  let curIndex = 0;
+  function initCarousel(){
+    const car = document.getElementById('carousel');
+    const meta = document.getElementById('carousel-meta');
+    if(images.length === 0){ car.innerHTML = '<div style="color:var(--muted)">No hay imágenes</div>'; meta.textContent=''; return; }
+    curIndex = 0;
+    function show(i){
+      curIndex = (i + images.length) % images.length;
+      const it = images[curIndex];
+      car.innerHTML = '';
+      const imgEl = createImgElement(null, it.orig, it.name);
+      imgEl.style.cursor='zoom-in'; imgEl.onclick = ()=>openLightbox(it);
+      car.appendChild(imgEl);
+      const nav = document.createElement('div'); nav.className='nav';
+      const left = document.createElement('button'); left.textContent='◀'; left.onclick = ()=>show(curIndex-1);
+      const right = document.createElement('button'); right.textContent='▶'; right.onclick = ()=>show(curIndex+1);
+      nav.appendChild(left); nav.appendChild(right); car.appendChild(nav);
+      meta.textContent = `${curIndex+1} / ${images.length} — ${it.name.replace(/\.[^/.]+$/,'')}`;
+    }
+    show(0);
+    window.carouselNext = ()=>show(curIndex+1);
+    window.carouselPrev = ()=>show(curIndex-1);
+  }
+
+  // Lightbox maximize in-page
+  function openLightbox(item){
+    const overlay = document.createElement('div'); overlay.className='lightbox'; overlay.tabIndex = -1;
+    const img = document.createElement('img'); img.src = item.orig; img.alt = item.name;
+    const caption = document.createElement('div'); caption.className='lb-caption'; caption.textContent = item.name.replace(/\.[^/.]+$/,'');
+    const nav = document.createElement('div'); nav.className='lb-nav';
+    const prevBtn = document.createElement('button'); prevBtn.textContent='◀'; prevBtn.onclick = (e)=>{ e.stopPropagation(); navigateLightbox(-1); };
+    const nextBtn = document.createElement('button'); nextBtn.textContent='▶'; nextBtn.onclick = (e)=>{ e.stopPropagation(); navigateLightbox(1); };
+    nav.appendChild(prevBtn); nav.appendChild(nextBtn);
+
+    overlay.appendChild(img); overlay.appendChild(caption); overlay.appendChild(nav);
+    overlay.addEventListener('click', ()=>overlay.remove());
+    overlay.addEventListener('keydown', (e)=>{ if(e.key==='ArrowRight') navigateLightbox(1); if(e.key==='ArrowLeft') navigateLightbox(-1); if(e.key==='Escape') overlay.remove(); });
+    document.body.appendChild(overlay);
+    overlay.focus();
+
+    function navigateLightbox(delta){
+      if(images.length === 0) return;
+      const idx = images.findIndex(it=>it.orig === item.orig);
+      const next = (idx + delta + images.length) % images.length;
+      const nextItem = images[next];
+      img.src = nextItem.orig; caption.textContent = nextItem.name.replace(/\.[^/.]+$/,'');
+      item = nextItem;
+    }
+  }
+
+  function renderPDFs(pdfFiles){
+    const list = document.getElementById('pdf-list'); list.innerHTML='';
+    pdfFiles.forEach(rawHref =>{
+      const decoded = decodeURIComponent(rawHref);
+      const a = document.createElement('a'); a.className='pdf-btn'; a.href = GALLERY_DIR + rawHref; a.target='_blank'; a.rel='noopener'; a.textContent = decoded; list.appendChild(a);
+    });
+  }
+
+  window.addEventListener('keydown', (e)=>{
+    if(e.key === 'ArrowRight') window.carouselNext && window.carouselNext();
+    if(e.key === 'ArrowLeft') window.carouselPrev && window.carouselPrev();
+  });
+
+  loadGallery();
+
+  </script>
 </body>
 </html>
