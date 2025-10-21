@@ -28,6 +28,7 @@
     .lb-nav button{pointer-events:auto;background:rgba(255,255,255,0.06);border:0;color:var(--accent);padding:0.6rem;border-radius:6px}
     .pdfs{margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:0.6rem}
     .pdf-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent);padding:0.45rem 0.7rem;border-radius:8px;text-decoration:none;font-size:0.95rem}
+    .hint{margin:1rem 0;color:var(--muted);font-size:0.95rem}
     footer{margin-top:2rem;color:var(--muted);font-size:0.9rem;text-align:center}
   </style>
 </head>
@@ -37,6 +38,7 @@
 
     <main>
       <section id="pdf-area"><h2 style="color:#fff;font-size:1rem;margin-top:0">Documentos (PDF)</h2><div id="pdf-list" class="pdfs"></div></section>
+      <p id="hint" class="hint">Cargando galería...</p>
       <section id="gallery-area">
         <div id="carousel" class="carousel"><div style="color:var(--muted)">Cargando imágenes...</div></div>
         <div id="carousel-meta" class="meta"></div>
@@ -49,18 +51,183 @@
 <script>
 const GALLERY_DIR = 'galeria/';
 let images=[], pdfs=[];
+const hintEl = document.getElementById('hint');
+
 const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){const img=e.target;const src=img.dataset.src;if(src){img.src=src;img.removeAttribute('data-src')}io.unobserve(img)}})}, {rootMargin:'200px'}) : null;
 function createImgElement(dataSrc, alt){const im=document.createElement('img');im.alt=alt;im.src='img/thumb_missing.svg';if(dataSrc){im.setAttribute('data-src', dataSrc); if(io) io.observe(im); else im.src=dataSrc}im.loading='lazy';return im}
-async function loadFromJson(){try{const res=await fetch(GALLERY_DIR+'gallery_index.json');if(!res.ok) throw new Error('no json');const data=await res.json();images=data.images.map(i=>({name:i.display, orig:GALLERY_DIR+i.orig, thumb:i.thumb?GALLERY_DIR+i.thumb:null}));pdfs=data.pdfs.map(p=>({name:p.display, orig:GALLERY_DIR+p.orig}));return true}catch(e){return false}}
-async function loadFromDir(){const res=await fetch(GALLERY_DIR);if(!res.ok) throw new Error('dir');const text=await res.text();const doc=new DOMParser().parseFromString(text,'text/html');const hrefs=Array.from(doc.querySelectorAll('a')).map(a=>a.getAttribute('href')).filter(h=>h&&h!='../');const imgExt=['.png','.jpg','.jpeg','.gif','.webp','.bmp','.tiff','.svg'];const pdfExt=['.pdf'];const imgs=[], pds=[];for(const h of hrefs){if(h.endsWith('/')) continue; const low=h.toLowerCase(); if(imgExt.some(e=>low.endsWith(e))) imgs.push(h); else if(pdfExt.some(e=>low.endsWith(e))) pds.push(h)} images=imgs.sort().map(h=>({name:decodeURIComponent(h), orig:GALLERY_DIR+h, thumb:null})); pdfs=pds.sort().map(h=>({name:decodeURIComponent(h), orig:GALLERY_DIR+h}));
+
+async function loadFromJson(){
+  try{
+    const res = await fetch(GALLERY_DIR + 'gallery_index.json');
+    if(!res.ok) throw new Error('no json');
+    const data = await res.json();
+    images = data.images.map(i=>({name:i.display, orig: (i.orig.startsWith('http')? i.orig : GALLERY_DIR + i.orig), thumb: i.thumb ? (i.thumb.startsWith('http')? i.thumb : GALLERY_DIR + i.thumb) : null}));
+    pdfs = data.pdfs.map(p=>({name:p.display, orig: (p.orig.startsWith('http')? p.orig : GALLERY_DIR + p.orig)}));
+    hintEl.textContent = 'Cargado desde gallery_index.json';
+    return true;
+  }catch(e){
+    return false;
+  }
 }
-async function findThumb(base){const enc=encodeURIComponent(base);const cands=[`thumbs/prev_${enc}.png`,`thumbs/prev_${enc}.gif`,`thumbs/prev_${enc}.svg`,`thumbs/prev_${enc}.jpg`];for(const c of cands){try{const r=await fetch(GALLERY_DIR+c,{method:'HEAD'});if(r.ok) return GALLERY_DIR+c}catch(e){} }return null}
-async function populateThumbs(){for(let i=0;i<images.length;i++){const base=images[i].name.replace(/\.[^/.]+$/,'');const t=await findThumb(base);images[i].thumb=t}}
-function renderWall(){const wall=document.getElementById('wall');wall.innerHTML='';images.forEach(img=>{const tile=document.createElement('div');tile.className='tile';const a=document.createElement('a');a.href=img.orig;a.onclick=e=>{e.preventDefault();openLightbox(img)};const dataSrc=img.thumb?img.thumb:img.orig;const im=createImgElement(dataSrc,img.name);a.appendChild(im);const cap=document.createElement('div');cap.className='caption';cap.textContent=img.name.replace(/\.[^/.]+$/,'');tile.appendChild(a);tile.appendChild(cap);wall.appendChild(tile)})}
-function initCarousel(){const car=document.getElementById('carousel');const meta=document.getElementById('carousel-meta');if(images.length===0){car.innerHTML='<div style="color:var(--muted)">No hay imágenes</div>';meta.textContent='';return}let cur=0;function show(i){cur=(i+images.length)%images.length;const it=images[cur];car.innerHTML='';const imgEl=createImgElement(it.orig,it.name);imgEl.style.cursor='zoom-in';imgEl.onclick=()=>openLightbox(it);car.appendChild(imgEl);const nav=document.createElement('div');nav.className='nav';const left=document.createElement('button');left.textContent='◀';left.onclick=()=>show(cur-1);const right=document.createElement('button');right.textContent='▶';right.onclick=()=>show(cur+1);nav.appendChild(left);nav.appendChild(right);car.appendChild(nav);meta.textContent=`${cur+1} / ${images.length} — ${it.name.replace(/\.[^/.]+$/,'')}` } show(0);window.carouselNext=()=>show(cur+1);window.carouselPrev=()=>show(cur-1)}
-function openLightbox(item){const overlay=document.createElement('div');overlay.className='lightbox';overlay.tabIndex=-1;const img=document.createElement('img');img.src=item.orig;img.alt=item.name;const caption=document.createElement('div');caption.className='lb-caption';caption.textContent=item.name.replace(/\.[^/.]+$/,'');const nav=document.createElement('div');nav.className='lb-nav';const prevBtn=document.createElement('button');prevBtn.textContent='◀';prevBtn.onclick=(e)=>{e.stopPropagation();navigateLightbox(-1)};const nextBtn=document.createElement('button');nextBtn.textContent='▶';nextBtn.onclick=(e)=>{e.stopPropagation();navigateLightbox(1)};nav.appendChild(prevBtn);nav.appendChild(nextBtn);overlay.appendChild(img);overlay.appendChild(caption);overlay.appendChild(nav);overlay.addEventListener('click',()=>overlay.remove());overlay.addEventListener('keydown',(e)=>{if(e.key==='ArrowRight')navigateLightbox(1);if(e.key==='ArrowLeft')navigateLightbox(-1);if(e.key==='Escape')overlay.remove()});document.body.appendChild(overlay);overlay.focus();function navigateLightbox(delta){if(images.length===0) return;const idx=images.findIndex(it=>it.orig===item.orig);const next=(idx+delta+images.length)%images.length;const nextItem=images[next];img.src=nextItem.orig;caption.textContent=nextItem.name.replace(/\.[^/.]+$/,'');item=nextItem}}
-function renderPDFs(){const list=document.getElementById('pdf-list');list.innerHTML='';pdfs.forEach(p=>{const a=document.createElement('a');a.className='pdf-btn';a.href=p.orig;a.target='_blank';a.rel='noopener';a.textContent=p.name;list.appendChild(a)})}
-async function loadGallery(){const ok=await loadFromJson().catch(()=>false);if(!ok) await loadFromDir().catch(()=>{document.getElementById('wall').innerHTML='<div style="padding:2rem;color:var(--muted)">No se pudo cargar la galería. Asegura que la carpeta "galeria/" existe y es accesible.</div>';throw new Error('no gallery')});await populateThumbs();renderPDFs();initCarousel();renderWall()}
+
+async function loadFromGridHtml(){
+  try{
+    const res = await fetch(GALLERY_DIR + 'gallery_grid.html');
+    if(!res.ok) throw new Error('no grid');
+    const text = await res.text();
+    const doc = new DOMParser().parseFromString(text, 'text/html');
+    const anchors = Array.from(doc.querySelectorAll('a.gallery-item'));
+    images = anchors.map(a=>{
+      const href = a.getAttribute('href');
+      const img = a.querySelector('img');
+      const src = img ? img.getAttribute('src') : null;
+      const fname = href.split('/').pop();
+      return { name: decodeURIComponent(fname), orig: (href.startsWith('http')? href : (href.startsWith(GALLERY_DIR)? href : GALLERY_DIR + href)), thumb: (src ? (src.startsWith('http')? src : (src.startsWith(GALLERY_DIR)? src : GALLERY_DIR + src)) : null) };
+    });
+    // PDFs maybe not present in grid; leave pdfs as empty; user likely has separate PDFs
+    hintEl.textContent = 'Cargado desde gallery_grid.html';
+    return true;
+  }catch(e){
+    return false;
+  }
+}
+
+async function loadFromDir(){
+  try{
+    const res = await fetch(GALLERY_DIR);
+    if(!res.ok) throw new Error('dir');
+    const text = await res.text();
+    const doc = new DOMParser().parseFromString(text, 'text/html');
+    const hrefs = Array.from(doc.querySelectorAll('a')).map(a=>a.getAttribute('href')).filter(h=>h && h !== '../');
+    const imgExt = ['.png','.jpg','.jpeg','.gif','.webp','.bmp','.tiff','.svg'];
+    const pdfExt = ['.pdf'];
+    const imgs = [], pds = [];
+    for(const h of hrefs){
+      if(h.endsWith('/')) continue;
+      const low = h.toLowerCase();
+      if(imgExt.some(e=>low.endsWith(e))) imgs.push(h);
+      else if(pdfExt.some(e=>low.endsWith(e))) pds.push(h);
+    }
+    images = imgs.sort().map(h=>({name: decodeURIComponent(h), orig: (h.startsWith(GALLERY_DIR)? h : GALLERY_DIR + h), thumb: null}));
+    pdfs = pds.sort().map(h=>({name: decodeURIComponent(h), orig: (h.startsWith(GALLERY_DIR)? h : GALLERY_DIR + h)}));
+    hintEl.textContent = 'Cargado desde directory listing';
+    return true;
+  }catch(e){
+    return false;
+  }
+}
+
+async function findThumb(base){
+  const enc = encodeURIComponent(base);
+  const cands = [`thumbs/prev_${enc}.png`,`thumbs/prev_${enc}.gif`,`thumbs/prev_${enc}.svg`,`thumbs/prev_${enc}.jpg`];
+  for(const c of cands){
+    try{
+      const r = await fetch(GALLERY_DIR + c, {method:'HEAD'});
+      if(r.ok) return GALLERY_DIR + c;
+    }catch(e){}
+  }
+  return null;
+}
+
+async function populateThumbs(){
+  for(let i=0;i<images.length;i++){
+    const base = images[i].name.replace(/\.[^/.]+$/,'');
+    const t = await findThumb(base);
+    images[i].thumb = t;
+  }
+}
+
+function renderWall(){
+  const wall = document.getElementById('wall');
+  wall.innerHTML = '';
+  images.forEach(img =>{
+    const tile = document.createElement('div'); tile.className='tile';
+    const a = document.createElement('a'); a.href = img.orig; a.onclick = (e)=>{ e.preventDefault(); openLightbox(img); };
+    const dataSrc = img.thumb ? img.thumb : img.orig;
+    const im = createImgElement(dataSrc, img.name);
+    a.appendChild(im);
+    const cap = document.createElement('div'); cap.className='caption'; cap.textContent = img.name.replace(/\.[^/.]+$/,'');
+    tile.appendChild(a); tile.appendChild(cap);
+    wall.appendChild(tile);
+  });
+}
+
+function initCarousel(){
+  const car = document.getElementById('carousel');
+  const meta = document.getElementById('carousel-meta');
+  if(images.length === 0){ car.innerHTML = '<div style="color:var(--muted)">No hay imágenes</div>'; meta.textContent=''; return; }
+  let cur = 0;
+  function show(i){
+    cur = (i + images.length) % images.length;
+    const it = images[cur];
+    car.innerHTML = '';
+    const imgEl = createImgElement(it.orig, it.name);
+    imgEl.style.cursor = 'zoom-in'; imgEl.onclick = ()=>openLightbox(it);
+    car.appendChild(imgEl);
+    const nav = document.createElement('div'); nav.className = 'nav';
+    const left = document.createElement('button'); left.textContent = '◀'; left.onclick = ()=>show(cur-1);
+    const right = document.createElement('button'); right.textContent = '▶'; right.onclick = ()=>show(cur+1);
+    nav.appendChild(left); nav.appendChild(right); car.appendChild(nav);
+    meta.textContent = `${cur+1} / ${images.length} — ${it.name.replace(/\.[^/.]+$/,'')}`;
+  }
+  show(0);
+  window.carouselNext = ()=>show(cur+1);
+  window.carouselPrev = ()=>show(cur-1);
+}
+
+function openLightbox(item){
+  const overlay = document.createElement('div'); overlay.className = 'lightbox'; overlay.tabIndex = -1;
+  const img = document.createElement('img'); img.src = item.orig; img.alt = item.name;
+  const caption = document.createElement('div'); caption.className = 'lb-caption'; caption.textContent = item.name.replace(/\.[^/.]+$/,'');
+  const nav = document.createElement('div'); nav.className = 'lb-nav';
+  const prevBtn = document.createElement('button'); prevBtn.textContent = '◀'; prevBtn.onclick = (e)=>{ e.stopPropagation(); navigateLightbox(-1); };
+  const nextBtn = document.createElement('button'); nextBtn.textContent = '▶'; nextBtn.onclick = (e)=>{ e.stopPropagation(); navigateLightbox(1); };
+  nav.appendChild(prevBtn); nav.appendChild(nextBtn);
+
+  overlay.appendChild(img); overlay.appendChild(caption); overlay.appendChild(nav);
+  overlay.addEventListener('click', ()=>overlay.remove());
+  overlay.addEventListener('keydown', (e)=>{ if(e.key==='ArrowRight') navigateLightbox(1); if(e.key==='ArrowLeft') navigateLightbox(-1); if(e.key==='Escape') overlay.remove(); });
+  document.body.appendChild(overlay);
+  overlay.focus();
+
+  function navigateLightbox(delta){
+    if(images.length === 0) return;
+    const idx = images.findIndex(it=>it.orig === item.orig);
+    const next = (idx + delta + images.length) % images.length;
+    const nextItem = images[next];
+    img.src = nextItem.orig; caption.textContent = nextItem.name.replace(/\.[^/.]+$/,'');
+    item = nextItem;
+  }
+}
+
+function renderPDFs(){
+  const list = document.getElementById('pdf-list'); list.innerHTML = '';
+  pdfs.forEach(p=>{const a=document.createElement('a');a.className='pdf-btn';a.href=p.orig;a.target='_blank';a.rel='noopener';a.textContent=p.name;list.appendChild(a)});
+}
+
+async function loadGallery(){
+  hintEl.textContent = 'Cargando galería...';
+  const okJson = await loadFromJson().catch(()=>false);
+  if(!okJson){
+    const okGrid = await loadFromGridHtml().catch(()=>false);
+    if(!okGrid){
+      const okDir = await loadFromDir().catch(()=>false);
+      if(!okDir){
+        hintEl.textContent = 'No se encontró gallery_index.json ni listado de directorio ni gallery_grid.html en el host. Ejecuta generate_gallery_index.py y sube galeria/gallery_index.json al servidor.';
+        return;
+      }
+    }
+  }
+  // populate thumbs (only needed if loaded from grid or dir)
+  await populateThumbs();
+  renderPDFs();
+  initCarousel();
+  renderWall();
+  hintEl.textContent = '';
+}
+
+window.addEventListener('keydown',(e)=>{ if(e.key==='ArrowRight') window.carouselNext && window.carouselNext(); if(e.key==='ArrowLeft') window.carouselPrev && window.carouselPrev(); });
+
 loadGallery();
 </script>
 </body>
