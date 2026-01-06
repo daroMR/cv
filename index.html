@@ -250,8 +250,11 @@
             </svg>
             Descargar en PDF
         </button>
-        <!-- Botón para portafolio -->
-        <button id="portfolio-btn" class="btn flex items-center gap-2" onclick="window.location.href='portafolio.html'">
+        <!-- Botón para portafolio (OCULTO) -->
+        <!-- Portafolio en mantenimiento: ocultado en el índice hasta que `portafolio.html` esté finalizado.
+             Estado en: `mantenimiento.html` — Fecha: 2026-01-06.
+             Para re-activar: quitar el atributo `hidden` y añadir el manejador (por ejemplo: onclick="window.location.href='portafolio.html'"). -->
+        <button id="portfolio-btn" class="btn flex items-center gap-2" hidden aria-hidden="true" title="Portafolio en mantenimiento" data-maintenance-link="mantenimiento.html" data-maintenance-date="2026-01-06">
             <!-- Icono de portafolio/carpeta -->
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7a2 2 0 012-2h3.172a2 2 0 011.414.586l1.828 1.828A2 2 0 0012.828 8H19a2 2 0 012 2v7a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" />
