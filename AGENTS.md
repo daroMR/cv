@@ -41,16 +41,23 @@ React 19, Vite 8, TypeScript 6, TailwindCSS v4, React Three Fiber, Three.js, fra
 3 color palettes (Zen Ocean default, Shadow Pine dark, Paper & Ink classic). ThemeToggle component in header. Stored in `localStorage` under `cv2026-theme`. CSS custom properties on `[data-theme]`.
 
 ### 3D
-Subtle torus knot via `@react-three/fiber` + `drei`. Wireframe, opacity 0.15, rotates slowly. Hidden on mobile (<1024px) and during print. Color reacts to theme changes via MutationObserver.
+Subtle torus knot via `@react-three/fiber` + `drei`. Renderizado como **fondo fijo** (`position: fixed, z-index: -1`) detrás de todo el contenido. Wireframe, opacidad **0.08**, rotación muy lenta. Solo visible en desktop (>1024px). Color reacciona a cambios de tema via MutationObserver.
+
+### Layout & tipografía
+- Fondo 3D `ZenShape` en `position: fixed; z-index: -1` — no interfiere con el texto
+- CV content: texto reducido (h1: 1.3rem, body: 0.8rem, highlights: 0.75rem)
+- Cards con `padding: 1rem 1.25rem`, separación entre cards: `0.75rem`
+- `container-main`: `max-width: 900px`, `padding: 0.75rem`
+- Print: `font-size: 9pt`, márgenes de página `10mm`, cards sin border/box-shadow
 
 ### PDF download
-Lazy-loaded `html2pdf.js` (jsPDF + html2canvas). Captures `#cv-content` at 2x scale. Separate chunk (~935KB, loaded on click only).
+Lazy-loaded `html2pdf.js` (jsPDF + html2canvas). Captures `#cv-content` at 2x scale. Separate chunk (~935KB, loaded on click only). PDF margins tight: `5mm` each side, image quality `0.92`.
 
 ### Dev commands
 ```bash
 cd 2026/
 npm install         # Already done
-npm run dev         # Dev server at localhost:5173
+npm run dev         # Dev server at localhost:5173/cv/2026/
 npm run build       # Type-check + build to dist/
 npm run preview     # Preview production build
 ```

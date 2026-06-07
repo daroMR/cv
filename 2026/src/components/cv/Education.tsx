@@ -11,9 +11,9 @@ export default function Education({ cv }: EducationProps) {
         <h2>Educación y formación</h2>
         <div className="line" />
       </div>
-      <ul style={{ margin: 0, paddingLeft: '1.2rem', fontSize: '0.85rem', lineHeight: '1.6' }}>
+      <ul style={{ margin: 0, paddingLeft: '1.1rem', fontSize: '0.8rem', lineHeight: '1.5' }}>
         {cv.education.map((edu, i) => (
-          <li key={i}>
+          <li key={i} style={{ marginBottom: '0.15rem' }}>
             <strong>{edu.title}</strong> — {edu.institution} ({edu.year})
           </li>
         ))}

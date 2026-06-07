@@ -33,5 +33,5 @@ export function useTheme() {
 
   const current = themeLabels[theme]
 
-  return { theme, cycleTheme, current, themes: THEMES, themeLabels }
+  return { theme, cycleTheme, setTheme: setThemeState, current, themes: THEMES, themeLabels }
 }

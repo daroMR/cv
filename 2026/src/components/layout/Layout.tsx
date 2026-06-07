@@ -1,5 +1,8 @@
 import { Outlet, Link, useLocation } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
 import ThemeToggle from './ThemeToggle'
+
+const ZenShape = lazy(() => import('../three/ZenShape'))
 
 export default function Layout() {
   const location = useLocation()
@@ -7,6 +10,9 @@ export default function Layout() {
 
   return (
     <div className="container-main" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Suspense fallback={null}>
+        <ZenShape />
+      </Suspense>
       <header
         className="no-print"
         style={{

@@ -35,7 +35,6 @@ export interface CVData {
   phone: string
   email: string
   website: string
-  age: string
   location: string
   photo: string
   profile: string[]
@@ -43,7 +42,6 @@ export interface CVData {
   experience: Experience[]
   education: Education[]
   objective: string
-  objectiveSalary: string
   social: {
     telegram: string
     linkedin: string
@@ -59,8 +57,7 @@ const cv: CVData = {
   phone: '56 6158 1154',
   email: 'drqbeat@gmail.com',
   website: 'https://daromr.github.io/cv/',
-  age: '37 años.',
-  location: 'Mercadela No. 77, Col. Lomas de San Miguel, Atizapán de Zaragoza, Estado de México, CP 52928',
+  location: 'Atizapán de Zaragoza, Estado de México',
   photo: '/cv/2026/photo.jpg',
   profile: [
     'Profesional versátil con más de 10 años de experiencia en desarrollo de software y diseño gráfico, integrando ambas disciplinas para crear soluciones tecnológicas robustas, visualmente atractivas y fáciles de usar.',
@@ -123,14 +120,6 @@ const cv: CVData = {
       ],
     },
     {
-      company: 'Uber',
-      role: 'Conductor',
-      period: 'ene. 2015 – jul. 2017',
-      highlights: [
-        'Conduje por todo ese tiempo sin ningún percance. Manteniendo una buena calificación dentro de la aplicación.',
-      ],
-    },
-    {
       company: 'Avantec Crisaludom',
       role: 'Proyectista de espacios',
       period: 'mar. 2013 – nov. 2014',
@@ -179,12 +168,11 @@ const cv: CVData = {
   education: [
     { title: 'Certificación en AutoCAD Electrical', institution: 'Univercad', year: '2025' },
     { title: 'Ingeniería en Desarrollo de Software', institution: 'UnADM', year: '2015–2017' },
-    { title: 'Técnico en Diseño Gráfico', institution: 'CBT Tlalnepantla', year: '2003–2006' },
     { title: 'Diplomado en Diseño Gráfico', institution: 'D4 Reality', year: '2010–2012' },
     { title: 'Diplomado en Animación y Arte Digital', institution: 'D4 Reality', year: '2010–2012' },
+    { title: 'Técnico en Diseño Gráfico', institution: 'CBT Tlalnepantla', year: '2003–2006' },
   ],
   objective: 'Busco una posición remota que me permita aportar mi experiencia en desarrollo de software y diseño, colaborando con equipos multidisciplinarios y contribuyendo al crecimiento de la empresa mediante soluciones tecnológicas innovadoras y eficientes.',
-  objectiveSalary: '$28,000 MXN brutos',
   social: {
     telegram: 'https://t.me/drqbeat',
     linkedin: 'https://linkedin.com/in/drqbeat',
@@ -222,7 +210,7 @@ const cv: CVData = {
       approach: 'Construí una escena 3D navegable en Unity con assets propios modelados en Blender.',
       result: 'Experiencia WebGL embedida en el portafolio, accesible desde cualquier navegador.',
       tech: ['Unity', 'WebGL', 'Blender', 'C#'],
-      images: ['/cv/galeria/Patin_01- Blender.gif', '/cv/galeria/wall - 3DMax.jpg'],
+      images: ['/cv/galeria/Patin_01 - Blender.gif', '/cv/galeria/wall - 3DMax.jpg'],
     },
     {
       id: 'cv-portfolio-2026',

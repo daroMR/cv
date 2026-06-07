@@ -11,13 +11,11 @@ export default function Contact({ cv }: ContactProps) {
         <h2>Contacto</h2>
         <div className="line" />
       </div>
-      <div style={{ fontSize: '0.85rem', lineHeight: '1.6', color: 'var(--text)' }}>
-        <p>📞 {cv.phone}</p>
-        <p>📧 {cv.email}</p>
-        <p>🌐 <a href={cv.website} target="_blank" rel="noopener noreferrer">{cv.website}</a></p>
-        <p>📍 {cv.location}</p>
-        <p>{cv.age}</p>
-        <p>💰 Pretensión mensual: {cv.objectiveSalary}</p>
+      <div style={{ fontSize: '0.8rem', lineHeight: '1.5', color: 'var(--text)' }}>
+        <p style={{ margin: '0.15rem 0' }}>📞 {cv.phone}</p>
+        <p style={{ margin: '0.15rem 0' }}>📧 {cv.email}</p>
+        <p style={{ margin: '0.15rem 0' }}>🌐 <a href={cv.website} target="_blank" rel="noopener noreferrer">{cv.website}</a></p>
+        <p style={{ margin: '0.15rem 0' }}>📍 {cv.location}</p>
       </div>
     </section>
   )

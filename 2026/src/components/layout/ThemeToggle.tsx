@@ -5,7 +5,7 @@ interface ThemeToggleProps {
 }
 
 export default function ThemeToggle({ minimal }: ThemeToggleProps) {
-  const { cycleTheme, current, theme, themeLabels } = useTheme()
+  const { cycleTheme, current, theme, themeLabels, setTheme } = useTheme()
 
   if (minimal) {
     return (
@@ -34,11 +34,7 @@ export default function ThemeToggle({ minimal }: ThemeToggleProps) {
       {(Object.keys(themeLabels) as Theme[]).map(t => (
         <button
           key={t}
-          onClick={() => {
-            document.documentElement.setAttribute('data-theme', t)
-            localStorage.setItem('cv2026-theme', t)
-            window.dispatchEvent(new Event('storage'))
-          }}
+          onClick={() => setTheme(t)}
           title={themeLabels[t].name}
           style={{
             background: t === theme ? 'var(--accent)' : 'transparent',

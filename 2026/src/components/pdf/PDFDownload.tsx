@@ -17,9 +17,9 @@ export default function PDFDownload() {
       }
 
       const opt = {
-        margin: [10, 10, 10, 10] as [number, number, number, number],
+        margin: [5, 5, 5, 5] as [number, number, number, number],
         filename: 'CV_Hesvin_Dario_Molina_Rios_2026.pdf',
-        image: { type: 'jpeg' as const, quality: 0.95 },
+        image: { type: 'jpeg' as const, quality: 0.92 },
         html2canvas: {
           scale: 2,
           useCORS: true,

@@ -13,8 +13,8 @@ export default function Lightbox({ project, onClose, onPrev, onNext }: LightboxP
 
   const handleKey = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') onClose()
-    if (e.key === 'ArrowRight') { setImgIdx(i => (i + 1) % Math.max(project.images.length, 1)); onNext() }
-    if (e.key === 'ArrowLeft') { setImgIdx(i => (i - 1 + Math.max(project.images.length, 1)) % Math.max(project.images.length, 1)); onPrev() }
+    if (e.key === 'ArrowRight') { setImgIdx(i => (i + 1) % Math.max(project.images.length, 1)) }
+    if (e.key === 'ArrowLeft') { setImgIdx(i => (i - 1 + Math.max(project.images.length, 1)) % Math.max(project.images.length, 1)) }
   }, [onClose, onNext, onPrev, project.images.length])
 
   useEffect(() => {

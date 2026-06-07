@@ -18,20 +18,20 @@ export default function Experience({ cv }: ExperienceProps) {
           <div
             key={i}
             style={{
-              marginBottom: i < cv.experience.length - 1 ? '1rem' : 0,
-              paddingBottom: i < cv.experience.length - 1 ? '1rem' : 0,
+              marginBottom: i < cv.experience.length - 1 ? '0.75rem' : 0,
+              paddingBottom: i < cv.experience.length - 1 ? '0.75rem' : 0,
               borderBottom: i < cv.experience.length - 1 ? '1px solid var(--border)' : 'none',
             }}
           >
-            <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--accent)', margin: '0 0 0.15rem' }}>
+            <h3 style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--accent)', margin: '0 0 0.1rem' }}>
               {exp.company}
             </h3>
-            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', margin: '0 0 0.35rem' }}>
+            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: '0 0 0.25rem' }}>
               {exp.role} | {exp.period}
             </p>
-            <ul style={{ margin: 0, paddingLeft: '1.2rem', fontSize: '0.82rem', lineHeight: '1.4' }}>
+            <ul style={{ margin: 0, paddingLeft: '1.1rem', fontSize: '0.75rem', lineHeight: '1.35' }}>
               {exp.highlights.map((h, j) => (
-                <li key={j} style={{ marginBottom: '0.15rem' }}>{h}</li>
+                <li key={j} style={{ marginBottom: '0.1rem' }}>{h}</li>
               ))}
             </ul>
           </div>
