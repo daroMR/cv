@@ -1,4 +1,5 @@
 import type { CVData } from '../../data/cv'
+import ZenShape from '../three/ZenShape'
 
 interface HeroProps {
   cv: CVData
@@ -16,9 +17,11 @@ export default function Hero({ cv }: HeroProps) {
         gap: '0.5rem',
         position: 'relative',
         overflow: 'hidden',
+        minHeight: '260px',
+        justifyContent: 'center',
       }}
     >
-      <div className="three-container no-print" style={{ position: 'absolute', inset: 0, opacity: 0.4, pointerEvents: 'none' }} />
+      <ZenShape />
       <img
         src={cv.photo}
         alt={cv.name}
@@ -29,15 +32,17 @@ export default function Hero({ cv }: HeroProps) {
           objectFit: 'cover',
           border: '2px solid var(--border)',
           boxShadow: '0 2px 8px var(--shadow)',
+          position: 'relative',
+          zIndex: 1,
         }}
       />
-      <h1 style={{ fontSize: '1.75rem', fontWeight: 900, margin: 0, color: 'var(--text)' }}>
+      <h1 style={{ fontSize: '1.75rem', fontWeight: 900, margin: 0, color: 'var(--text)', position: 'relative', zIndex: 1 }}>
         {cv.name}
       </h1>
-      <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', margin: 0, fontWeight: 600 }}>
+      <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', margin: 0, fontWeight: 600, position: 'relative', zIndex: 1 }}>
         {cv.title}
       </p>
-      <p style={{ fontSize: '0.9rem', color: 'var(--accent)', margin: 0 }}>
+      <p style={{ fontSize: '0.9rem', color: 'var(--accent)', margin: 0, position: 'relative', zIndex: 1 }}>
         {cv.tagline}
       </p>
     </header>

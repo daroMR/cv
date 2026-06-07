@@ -200,7 +200,7 @@ const cv: CVData = {
       approach: 'Implementé nuevas funciones en el software HOH VOL, creé simbología oficial y gráficos HMI/SCADA integrando diseño visual con funcionalidad del sistema.',
       result: 'Sistema conforme a estándares Sempra, CFE y Pemex. Documentación técnica completa entregada.',
       tech: ['SCADA', 'HMI', 'GitHub', 'SQL', 'ABB'],
-      images: [],
+      images: ['/cv/galeria/HMI_01 - Blender - Photoshop.png', '/cv/galeria/HMI_02 - Blender - photoshop.png', '/cv/galeria/HMI_Scada01 - Blender - Photoshop.gif'],
     },
     {
       id: 'fractal-tree-3d',
@@ -211,7 +211,7 @@ const cv: CVData = {
       approach: 'Generación procedural de geometría fractal con Three.js, controles de órbita y animación de crecimiento progresivo.',
       result: 'Demo interactiva en vivo con partículas atmosféricas y transiciones de color de tronco a hojas.',
       tech: ['Three.js', 'JavaScript', 'HTML', 'CSS'],
-      images: [],
+      images: ['/cv/galeria/Splash - Blender - Gimp.png', '/cv/galeria/Triptico - Blender - Photoshop.png'],
     },
     {
       id: 'unity-showreel',
@@ -222,7 +222,7 @@ const cv: CVData = {
       approach: 'Construí una escena 3D navegable en Unity con assets propios modelados en Blender.',
       result: 'Experiencia WebGL embedida en el portafolio, accesible desde cualquier navegador.',
       tech: ['Unity', 'WebGL', 'Blender', 'C#'],
-      images: [],
+      images: ['/cv/galeria/Patin_01- Blender.gif', '/cv/galeria/wall - 3DMax.jpg'],
     },
     {
       id: 'cv-portfolio-2026',
@@ -233,7 +233,7 @@ const cv: CVData = {
       approach: 'Arquitectura SPA con React 19, Vite, TypeScript, 3 temas de color, 3D sutil con R3F.',
       result: 'Sitio imprimible vía CSS print + PDF descargable, con 3 temas seleccionables y animaciones sutiles.',
       tech: ['React', 'TypeScript', 'Vite', 'Three.js', 'TailwindCSS'],
-      images: [],
+      images: ['/cv/galeria/Logo_01 - 3DMax - Gimp.png', '/cv/galeria/Publicidad_01 - Blender.png'],
     },
   ],
 }

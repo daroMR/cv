@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { AdaptiveDpr, PerformanceMonitor } from '@react-three/drei'
 import * as THREE from 'three'
@@ -33,33 +33,26 @@ function TorusKnot() {
   return (
     <mesh ref={meshRef}>
       <torusKnotGeometry args={[1, 0.35, 128, 16]} />
-      <meshStandardMaterial
-        wireframe
-        transparent
-        opacity={0.15}
-        color="#4a7c9b"
-      />
+      <meshStandardMaterial wireframe transparent opacity={0.15} color="#4a7c9b" />
     </mesh>
   )
 }
 
 export default function ZenShape() {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const check = () => setVisible(window.innerWidth > 1024)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  if (!visible) return null
+
   return (
-    <div
-      className="three-container no-print"
-      style={{
-        position: 'absolute',
-        inset: 0,
-        pointerEvents: 'none',
-        display: 'none',
-      }}
-      id="zen-shape"
-    >
-      <Canvas
-        camera={{ position: [0, 0, 4], fov: 45 }}
-        gl={{ antialias: true, alpha: true }}
-        style={{ width: '100%', height: '100%' }}
-      >
+    <div className="no-print" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+      <Canvas camera={{ position: [0, 0, 4], fov: 45 }} gl={{ antialias: true, alpha: true }} style={{ width: '100%', height: '100%' }}>
         <AdaptiveDpr pixelated />
         <PerformanceMonitor />
         <ambientLight intensity={0.5} />
