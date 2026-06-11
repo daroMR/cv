@@ -25,7 +25,7 @@ export default function Portafolio() {
         <h2 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--text)' }}>
           Proyectos destacados
         </h2>
-        <Carousel projects={projects} />
+        <Carousel projects={projects} onSelectProject={setLightbox} />
       </section>
 
       <section>

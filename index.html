@@ -4,41 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Hesvin Dario Molina Rios</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <!-- Estilos personalizados (cache-bust: 2026-01-06) -->
     <link rel="stylesheet" href="css/index.css?v=20260106">
 </head>
 <body>
 <div class="container mx-auto p-4 md:p-8 max-w-4xl">
 
-    <!-- =========================
-         HEADER (NOMBRE Y TÍTULO)
-         ========================= -->
     <header class="sticky-header text-center mb-8 bg-white p-6 rounded-lg shadow-md relative">
         <div class="grid grid-cols-1 md:grid-cols-6 items-center gap-4">
-            <!-- Columnas 1 a 4: Nombre y título, centrados y ocupando cuatro columnas -->
             <div class="md:col-span-4 flex flex-col items-center justify-center">
                 <h1 class="font-extrabold text-gray-900 mb-0 text-center" style="font-size:1.944rem;">Hesvin Dario Molina Rios</h1>
                 <p class="text-sm md:text-base text-gray-600 font-semibold text-center" style="font-size:1.2em; margin-top:-0.2em;">
                     Desarrollador de Software | Diseñador Gráfico
                 </p>
             </div>
-            <!-- Columnas 5 y 6: Foto centrada verticalmente en dos columnas -->
             <div class="md:col-span-2 flex justify-center items-center">
                 <img src="img/id.jpg" alt="Foto de Hesvin Dario Molina Rios" class="w-24 h-24 rounded-full object-cover border-2 border-gray-300 shadow-md" />
             </div>
         </div>
     </header>
-
-    <!-- =========================
-         SECCIÓN CONTACTO
-         ========================= -->
     <section id="contact" class="mb-8 bg-white p-6 rounded-lg shadow-md">
     <div class="grid grid-cols-1 gap-2 text-xs md:text-sm pl-4 md:pl-8">
-        <!-- Línea de contacto principal: Teléfono, Email y CV en línea -->
         <div class="flex flex-wrap gap-4 items-center">
             <span aria-label="Teléfono">📞 56 6158 1154</span>
             <span aria-label="Correo electrónico">📧 drqbeat@gmail.com</span>
@@ -46,16 +33,12 @@
                 🌐 <a href="https://daromr.github.io/cv/index.html" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">daromr.github.io/cv/</a>
             </span>
         </div>
-        <!-- Ubicación -->
         <div>
             <span aria-label="Ubicación">📍 Atizapán de Zaragoza, Estado de México</span>
         </div>
     </div>
 </section>
 
-    <!-- =========================
-         SECCIÓN PERFIL PROFESIONAL
-         ========================= -->
     <section id="profile" class="mb-8 bg-white p-6 rounded-lg shadow-md">
     <div class="flex items-center gap-4 mb-4 pl-4 md:pl-8">
         <h2 class="font-bold text-left min-w-[160px] md:min-w-[200px] text-gray-700">Perfil profesional</h2>
@@ -74,9 +57,6 @@
     </div>
     </section>
 
-    <!-- =========================
-         SECCIÓN HABILIDADES CLAVE
-         ========================= -->
     <section id="skills" class="mb-8 bg-white p-6 rounded-lg shadow-md">
     <div class="flex items-center gap-4 mb-4 pl-4 md:pl-8">
         <h2 class="font-bold text-left min-w-[160px] md:min-w-[200px] text-gray-700">Habilidades clave</h2>
@@ -117,12 +97,8 @@
     </div>
 </section>
 
-    <!-- =========================
-         SECCIÓN EXPERIENCIA PROFESIONAL
-         ========================= -->
     <section id="experience" class="mb-8 bg-white p-6 rounded-lg shadow-md">
         <h2 class="font-bold text-center">Experiencia profesional</h2>
-        <!-- Repite este bloque para cada experiencia -->
         <div class="mb-6 pb-4 border-b last:border-b-0">
             <h3 class="text-base font-bold text-gray-500 pl-6">Integraciones y Automatización HOH</h3>
             <p class="text-xs text-gray-600">Cadista / Desarrollador HMI/SCADA | nov. 2019 – jul. 2025</p>
@@ -197,9 +173,6 @@
         </div>
     </section>
 
-    <!-- =========================
-         SECCIÓN EDUCACIÓN Y FORMACIÓN
-         ========================= -->
     <section id="education" class="mb-8 bg-white p-6 rounded-lg shadow-md">
         <h2 class="font-bold text-center">Educación y formación</h2>
         <ul class="list-disc pl-4 text-xs mt-2">
@@ -213,9 +186,6 @@
         </ul>
     </section>
 
-    <!-- =========================
-         SECCIÓN OBJETIVO PROFESIONAL
-         ========================= -->
     <section id="objetivo" class="mb-8 bg-white p-6 rounded-lg shadow-md">
         <h2 class="font-bold text-center">Objetivo profesional</h2>
         <p>
@@ -223,37 +193,25 @@
         </p>
     </section>
 
-    <!-- =========================
-         BARRA DE ACCIONES (DESCARGA Y ENLACES)
-         ========================= -->
-    <!-- Barra de acciones con botones de descarga, LinkedIn, portafolio, Telegram y WhatsApp -->
     <div id="action-bar" class="flex flex-col md:flex-row justify-center items-center gap-4 mt-8 mb-4">
-        <!-- Botón para descargar el CV en PDF -->
         <button id="download-pdf" class="btn flex items-center gap-2">
-            <!-- Icono de descarga -->
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
             </svg>
             Descargar en PDF
         </button>
-        <!-- Botón para portafolio -->
         <button id="portfolio-btn" class="btn flex items-center gap-2" onclick="window.location.href='portafolio.html'" title="Portafolio de proyectos">
-            <!-- Icono de portafolio/carpeta -->
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7a2 2 0 012-2h3.172a2 2 0 011.414.586l1.828 1.828A2 2 0 0012.828 8H19a2 2 0 012 2v7a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" />
             </svg>
             Portafolio
         </button>
-        <!-- Botón para Telegram -->
         <button id="contact-btn" class="btn flex items-center gap-2" title="Telegram">
-            <!-- Icono de Telegram -->
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M9.036 16.477l-.398 4.012c.57 0 .816-.244 1.115-.537l2.67-2.53 5.537 4.04c1.014.558 1.736.264 1.99-.94l3.61-16.84c.33-1.53-.553-2.13-1.54-1.76l-21.1 8.13c-1.44.558-1.42 1.36-.25 1.72l5.39 1.68 12.52-7.89c.59-.38 1.13-.17.69.24"/>
             </svg>
         </button>
-        <!-- Botón para LinkedIn (icono, sin texto, después de Telegram) -->
         <button id="linkedin-btn" class="btn flex items-center gap-2" title="LinkedIn">
-            <!-- Icono de LinkedIn -->
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.29c-.97 0-1.75-.79-1.75-1.76s.78-1.76 1.75-1.76 1.75.79 1.75 1.76-.78 1.76-1.75 1.76zm15.5 10.29h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/>
         </svg>
@@ -261,10 +219,7 @@
     </div>
 </div>
 
-<!-- =========================
-     SCRIPTS (PDF Y TEMAS)
-     ========================= -->
-<!-- Cache-bust: v=20260106 -->
+
 <script src="js/index.js?v=20260106"></script>
 </body>
 </html>

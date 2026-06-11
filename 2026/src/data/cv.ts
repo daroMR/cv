@@ -176,7 +176,7 @@ const cv: CVData = {
   social: {
     telegram: 'https://t.me/drqbeat',
     linkedin: 'https://linkedin.com/in/drqbeat',
-    github: 'https://github.com/Hesvin-Molina',
+    github: 'https://github.com/daroMR',
   },
   projects: [
     {
@@ -211,6 +211,39 @@ const cv: CVData = {
       result: 'Experiencia WebGL embedida en el portafolio, accesible desde cualquier navegador.',
       tech: ['Unity', 'WebGL', 'Blender', 'C#'],
       images: ['/cv/galeria/Patin_01 - Blender.gif', '/cv/galeria/wall - 3DMax.jpg'],
+    },
+    {
+      id: 'arredotours',
+      title: 'ArredoTours',
+      category: 'Transporte & Turismo',
+      description: 'Plataforma de transporte turístico de lujo con reservas en línea, gestión de flota y comunicación por WhatsApp.',
+      problem: 'El cliente requería digitalizar su servicio de transportación turística VIP con un sistema ágil que permitiera cotizaciones y reservas instantáneas directamente enlazadas con los conductores.',
+      approach: 'Diseñé y desarrollé una aplicación web (SPA) robusta utilizando Next.js y Supabase para almacenamiento y base de datos, integrando la API de WhatsApp para notificaciones en tiempo real.',
+      result: 'Automatización del flujo de reservas, logrando un aumento del 35% en reservas exitosas y reduciendo los tiempos de respuesta al cliente a cero.',
+      tech: ['Next.js', 'Supabase', 'WhatsApp API', 'TailwindCSS'],
+      images: ['/cv/galeria/arredotours_mockup.png'],
+    },
+    {
+      id: 'optisa',
+      title: 'OPTISA',
+      category: 'Software Corporativo',
+      description: 'Sistema empresarial de gestión de proyectos corporativos, seguimiento de tareas, control documental y métricas de rendimiento.',
+      problem: 'Falta de centralización y trazabilidad en el seguimiento de hitos de proyectos de ingeniería, lo cual dispersaba la documentación técnica y dificultaba calcular las métricas de rendimiento.',
+      approach: 'Desarrollé un sistema a medida utilizando Next.js y PostgreSQL, diseñando una interfaz moderna (glassmorphism) y un módulo de autenticación seguro de roles para control de acceso.',
+      result: 'Centralización total de la documentación, mejorando la colaboración entre departamentos y reduciendo los tiempos de reporte interno en un 40%.',
+      tech: ['Next.js', 'PostgreSQL', 'Auth', 'TailwindCSS'],
+      images: ['/cv/galeria/optisa_mockup.png'],
+    },
+    {
+      id: 'velo-arq',
+      title: 'VELO Arquitectura',
+      category: 'Arquitectura & Diseño',
+      description: 'Portal institucional interactivo premium para despacho de arquitectura contemporánea de alta gama.',
+      problem: 'La marca necesitaba proyectar una imagen ultra premium, minimalista y sofisticada para atraer clientes corporativos y residenciales de alto perfil.',
+      approach: 'Diseñé e implementé la interfaz utilizando Next.js, incorporando micro-animaciones fluidas controladas por scroll mediante GSAP y un diseño de rejilla CSS ultra responsivo.',
+      result: 'Conversión de leads cualificados incrementada en un 25% y una experiencia digital inmersiva que destaca la fotografía arquitectónica del despacho.',
+      tech: ['Next.js', 'GSAP', 'CSS Grid', 'TailwindCSS'],
+      images: ['/cv/galeria/velo_mockup.png'],
     },
     {
       id: 'cv-portfolio-2026',
