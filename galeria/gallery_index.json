@@ -19,18 +19,6 @@
       "thumb": null
     },
     {
-      "name": "HMI_03 - Blender - photoshop.gif",
-      "display": "HMI_03 - Blender - photoshop.gif",
-      "orig": "HMI_03%20-%20Blender%20-%20photoshop.gif",
-      "thumb": null
-    },
-    {
-      "name": "HMI_03 - Blender - photoshop.png",
-      "display": "HMI_03 - Blender - photoshop.png",
-      "orig": "HMI_03%20-%20Blender%20-%20photoshop.png",
-      "thumb": null
-    },
-    {
       "name": "HMI_04 - Blender - photoshop.gif",
       "display": "HMI_04 - Blender - photoshop.gif",
       "orig": "HMI_04%20-%20Blender%20-%20photoshop.gif",
@@ -40,12 +28,6 @@
       "name": "HMI_Scada01 - Blender - Photoshop.gif",
       "display": "HMI_Scada01 - Blender - Photoshop.gif",
       "orig": "HMI_Scada01%20-%20Blender%20-%20Photoshop.gif",
-      "thumb": null
-    },
-    {
-      "name": "HMI_Scada02 - Blender - Photoshop.gif",
-      "display": "HMI_Scada02 - Blender - Photoshop.gif",
-      "orig": "HMI_Scada02%20-%20Blender%20-%20Photoshop.gif",
       "thumb": null
     },
     {
@@ -73,63 +55,9 @@
       "thumb": null
     },
     {
-      "name": "Patin_03 - Blender.gif",
-      "display": "Patin_03 - Blender.gif",
-      "orig": "Patin_03%20-%20Blender.gif",
-      "thumb": null
-    },
-    {
-      "name": "Publicidad_01 - Blender.png",
-      "display": "Publicidad_01 - Blender.png",
-      "orig": "Publicidad_01%20-%20Blender.png",
-      "thumb": null
-    },
-    {
-      "name": "Publicidad_02 - Blender.png",
-      "display": "Publicidad_02 - Blender.png",
-      "orig": "Publicidad_02%20-%20Blender.png",
-      "thumb": null
-    },
-    {
-      "name": "Publicidad_03 - Blender.png",
-      "display": "Publicidad_03 - Blender.png",
-      "orig": "Publicidad_03%20-%20Blender.png",
-      "thumb": null
-    },
-    {
-      "name": "Publicidad_04 - Blender.png",
-      "display": "Publicidad_04 - Blender.png",
-      "orig": "Publicidad_04%20-%20Blender.png",
-      "thumb": null
-    },
-    {
-      "name": "Splash - Blender - Gimp.png",
-      "display": "Splash - Blender - Gimp.png",
-      "orig": "Splash%20-%20Blender%20-%20Gimp.png",
-      "thumb": null
-    },
-    {
       "name": "Triptico - Blender - Photoshop.png",
       "display": "Triptico - Blender - Photoshop.png",
       "orig": "Triptico%20-%20Blender%20-%20Photoshop.png",
-      "thumb": null
-    },
-    {
-      "name": "arredotours_mockup.png",
-      "display": "arredotours_mockup.png",
-      "orig": "arredotours_mockup.png",
-      "thumb": null
-    },
-    {
-      "name": "optisa_mockup.png",
-      "display": "optisa_mockup.png",
-      "orig": "optisa_mockup.png",
-      "thumb": null
-    },
-    {
-      "name": "velo_mockup.png",
-      "display": "velo_mockup.png",
-      "orig": "velo_mockup.png",
       "thumb": null
     },
     {
@@ -141,16 +69,6 @@
   ],
   "pdfs": [
     {
-      "name": "Alumbrado - 01 Autocad.pdf",
-      "display": "Alumbrado - 01 Autocad.pdf",
-      "orig": "Alumbrado%20-%2001%20Autocad.pdf"
-    },
-    {
-      "name": "Base_0 - Autocad.pdf",
-      "display": "Base_0 - Autocad.pdf",
-      "orig": "Base_0%20-%20Autocad.pdf"
-    },
-    {
       "name": "Botonera_01 - Inventor.pdf",
       "display": "Botonera_01 - Inventor.pdf",
       "orig": "Botonera_01%20-%20Inventor.pdf"
@@ -161,11 +79,6 @@
       "orig": "Disparos%20-%20Autocad%203D.pdf"
     },
     {
-      "name": "Gabinetes - Autocad.pdf",
-      "display": "Gabinetes - Autocad.pdf",
-      "orig": "Gabinetes%20-%20Autocad.pdf"
-    },
-    {
       "name": "GasyFuego_01 - Autocad.pdf",
       "display": "GasyFuego_01 - Autocad.pdf",
       "orig": "GasyFuego_01%20-%20Autocad.pdf"
@@ -174,11 +87,6 @@
       "name": "GasyFuego_02 - Autocad.pdf",
       "display": "GasyFuego_02 - Autocad.pdf",
       "orig": "GasyFuego_02%20-%20Autocad.pdf"
-    },
-    {
-      "name": "GasyFuego_04 - Autocad.pdf",
-      "display": "GasyFuego_04 - Autocad.pdf",
-      "orig": "GasyFuego_04%20-%20Autocad.pdf"
     },
     {
       "name": "Patin_Med_Movil - Autocad.pdf",
@@ -199,11 +107,6 @@
       "name": "Soft_Ctrl_Vol - PwrPoint  .pdf",
       "display": "Soft_Ctrl_Vol - PwrPoint  .pdf",
       "orig": "Soft_Ctrl_Vol%20-%20PwrPoint%20%20.pdf"
-    },
-    {
-      "name": "Trayectorias_01 - Autocad.pdf",
-      "display": "Trayectorias_01 - Autocad.pdf",
-      "orig": "Trayectorias_01%20-%20Autocad.pdf"
     },
     {
       "name": "Trayectorias_02 - Autocad.pdf",

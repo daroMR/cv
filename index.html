@@ -1,225 +1,417 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Hesvin Dario Molina Rios</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css?v=20260106">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hesvin Dario Molina Rios — Cadista Programador & Software Developer</title>
+  <meta name="description" content="Hesvin Dario Molina Rios. Cadista Programador con más de 10 años de experiencia integrando delineación técnica CAD (AutoCAD Electrical, Inventor, planos industriales, piping e isométricos) con desarrollo de software (Python, C#, SQL, React, WebGL) y automatización de procesos (Power Automate, n8n, PnP SharePoint). 100% Remoto.">
+  <meta name="keywords" content="Cadista Programador, CAD Programmer, AutoCAD Electrical, Autodesk Inventor, HMI/SCADA, Power Automate, n8n, PnP SharePoint, Python, C#, React, Three.js, WebGL, Remote Developer">
+  <meta name="author" content="Hesvin Dario Molina Rios">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://daromr.github.io/cv/">
+  <meta property="og:title" content="Hesvin Dario Molina Rios — Cadista Programador & Software Developer">
+  <meta property="og:description" content="Cadista Programador: 10+ años integrando delineación CAD industrial, ingeniería de software, automatización empresarial y visualización 3D. 100% Remoto.">
+  <meta property="og:image" content="https://daromr.github.io/cv/img/id.jpg">
+
+  <!-- Estilos y Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/index.css?v=20261025c">
+
+  <!-- Datos Estructurados JSON-LD (Optimización Directa para IA y ATS) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hesvin Dario Molina Rios",
+    "jobTitle": "Cadista Programador | CAD & Fullstack Software Developer",
+    "description": "Cadista Programador con más de 10 años de experiencia en ingeniería de software, interfaces críticas HMI/SCADA, delineación técnica industrial (AutoCAD, Inventor) y automatización de flujos de trabajo (Power Automate, n8n, PnP SharePoint).",
+    "url": "https://daromr.github.io/cv/",
+    "email": "drqbeat@gmail.com",
+    "telephone": "+52 56 6158 1154",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Atizapán de Zaragoza",
+      "addressRegion": "Estado de México",
+      "addressCountry": "MX"
+    },
+    "sameAs": [
+      "https://www.qore-arts.com",
+      "https://linkedin.com/in/drqbeat",
+      "https://t.me/drqbeat"
+    ],
+    "knowsAbout": [
+      "AutoCAD Electrical", "Autodesk Inventor", "CAD Drafting", "Industrial Blueprints",
+      "HMI/SCADA", "Power Automate", "n8n", "PnP SharePoint", "Project Online",
+      "React", "TypeScript", "Next.js", "Python", "C#", "SQL Server", "PostgreSQL",
+      "Three.js", "WebGL", "Docker", "Blender 3D"
+    ],
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Universidad Abierta y a Distancia de México (UnADM)"
+    }
+  }
+  </script>
 </head>
 <body>
-<div class="container mx-auto p-4 md:p-8 max-w-4xl">
 
-    <header class="sticky-header text-center mb-8 bg-white p-6 rounded-lg shadow-md relative">
-        <div class="grid grid-cols-1 md:grid-cols-6 items-center gap-4">
-            <div class="md:col-span-4 flex flex-col items-center justify-center">
-                <h1 class="font-extrabold text-gray-900 mb-0 text-center" style="font-size:1.944rem;">Hesvin Dario Molina Rios</h1>
-                <p class="text-sm md:text-base text-gray-600 font-semibold text-center" style="font-size:1.2em; margin-top:-0.2em;">
-                    Desarrollador de Software | Diseñador Gráfico
-                </p>
-            </div>
-            <div class="md:col-span-2 flex justify-center items-center">
-                <img src="img/id.jpg" alt="Foto de Hesvin Dario Molina Rios" class="w-24 h-24 rounded-full object-cover border-2 border-gray-300 shadow-md" />
-            </div>
-        </div>
+  <div class="page-container">
+
+    <!-- Barra Superior Sutil -->
+    <header class="top-nav">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span>Disponible para trabajo remoto (Global / LATAM / US)</span>
+      </div>
+      <div class="top-actions">
+        <button id="theme-toggle" class="theme-btn" aria-label="Cambiar tema">Modo claro</button>
+      </div>
     </header>
-    <section id="contact" class="mb-8 bg-white p-6 rounded-lg shadow-md">
-    <div class="grid grid-cols-1 gap-2 text-xs md:text-sm pl-4 md:pl-8">
-        <div class="flex flex-wrap gap-4 items-center">
-            <span aria-label="Teléfono">📞 56 6158 1154</span>
-            <span aria-label="Correo electrónico">📧 drqbeat@gmail.com</span>
-            <span aria-label="CV en línea">
-                🌐 <a href="https://daromr.github.io/cv/index.html" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">daromr.github.io/cv/</a>
-            </span>
-        </div>
-        <div>
-            <span aria-label="Ubicación">📍 Atizapán de Zaragoza, Estado de México</span>
-        </div>
-    </div>
-</section>
 
-    <section id="profile" class="mb-8 bg-white p-6 rounded-lg shadow-md">
-    <div class="flex items-center gap-4 mb-4 pl-4 md:pl-8">
-        <h2 class="font-bold text-left min-w-[160px] md:min-w-[200px] text-gray-700">Perfil profesional</h2>
-        <div class="flex-1 border-t border-gray-200"></div>
-    </div>
-    <div class="space-y-2 text-justify pl-4 md:pl-8">
-        <p>
-            Profesional versátil con más de 10 años de experiencia en desarrollo de software y diseño gráfico, integrando ambas disciplinas para crear soluciones tecnológicas robustas, visualmente atractivas y fáciles de usar.
+    <!-- Contenedor Principal del Documento (Capturado por el generador de PDF) -->
+    <div id="cv-document">
+
+      <!-- Encabezado / Hero -->
+      <section class="hero-section">
+        <div class="hero-header-row">
+          <img src="img/id.jpg" alt="Hesvin Dario Molina Rios" class="hero-avatar" width="72" height="72">
+          <div class="hero-title-group">
+            <h1>Hesvin Dario Molina Rios</h1>
+            <p class="hero-role">Cadista Programador | CAD & Fullstack Software Developer</p>
+          </div>
+        </div>
+
+        <p class="hero-bio">
+          <strong>Cadista Programador con más de 10 años de experiencia</strong> fusionando delineación técnica e ingeniería de detalle (<strong>AutoCAD Electrical, Autodesk Inventor, planos de instrumentación, tuberías e isométricos</strong>) con desarrollo de software (<strong>Python, C#, SQL, React, WebGL</strong>) y automatización de procesos de negocio (<strong>Microsoft Power Automate, n8n, migraciones de Project Online vía PnP SharePoint</strong>). Especializado en interfaces críticas HMI/SCADA, cumplimiento regulatorio energético (CRE Anexos 30/31, Pemex, CFE) y servicios tecnológicos a través de <strong>QORE Arts</strong> (<a href="https://www.qore-arts.com" target="_blank" rel="noopener noreferrer" style="color:var(--text-primary); text-decoration:underline;">www.qore-arts.com</a>).
         </p>
-        <p>
-            Experto en conceptualización, bocetaje, diseño de diagramas de flujo y bases de datos UML, así como en la planificación y seguimiento de proyectos con herramientas como Microsoft Project, Jira y GitHub Projects. Amplia experiencia en documentación técnica.
-        </p>
-        <p>
-            Cuento con amplia experiencia en audio, video, edición de imagen, así como también en animación 2D y 3D.
-        </p>
-    </div>
+
+        <div class="hero-meta-list">
+          <span class="hero-meta-item">📍 Atizapán, Estado de México (UTC-6)</span>
+          <span class="hero-meta-item">🌐 Inglés Técnico (B2+) & Español Nativo</span>
+          <span class="hero-meta-item">⚡ Modalidad 100% Remota</span>
+        </div>
+
+        <div class="action-buttons-group no-print">
+          <button id="btn-download-pdf" class="btn-primary" title="Genera un PDF con el diseño exacto de esta página">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Descargar PDF
+          </button>
+          <button id="btn-print" class="btn-secondary" title="Imprimir o guardar en PDF nativo">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Imprimir
+          </button>
+          <button id="btn-copy-email" class="btn-secondary" title="Copiar correo electrónico">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copiar Email
+          </button>
+          <a href="https://www.qore-arts.com" target="_blank" rel="noopener noreferrer" class="btn-secondary" title="QORE Arts — Servicios de CAD, Diseño y Software">
+            QORE Arts ↗
+          </a>
+          <a href="https://linkedin.com/in/drqbeat" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            LinkedIn ↗
+          </a>
+          <a href="https://t.me/drqbeat" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            Telegram ↗
+          </a>
+        </div>
+      </section>
+
+      <!-- Experiencia Profesional -->
+      <section class="content-section">
+        <h2 class="section-title">Experiencia Profesional</h2>
+
+        <div class="experience-list">
+          <!-- HOH -->
+          <article class="experience-item">
+            <div class="exp-header">
+              <div class="exp-role-company">
+                <span>Cadista / Desarrollador HMI/SCADA</span>
+                <span class="exp-company">— Integraciones y Automatización HOH</span>
+              </div>
+              <span class="exp-date">nov. 2019 – jul. 2025</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>
+                <strong>Sistemas TMS-SCADA:</strong> Desarrollo de software y pantallas HMI para control volumétrico (HOH VOL), garantizando <strong>100% de cumplimiento regulatorio CRE (Anexos 30 y 31)</strong> en terminales para Pemex, CFE y Sempra.
+              </li>
+              <li>
+                <strong>Delineación CAD Industrial:</strong> Elaboración de planos de canalizaciones, diagramas unifilares, instrumentación y memorias técnicas con AutoCAD Electrical.
+              </li>
+              <li>
+                <strong>Control de Versiones:</strong> Estandarización de gestión de código con Git y seguimiento de proyectos técnicos.
+              </li>
+            </ul>
+          </article>
+
+          <!-- Consultoría Automatización -->
+          <article class="experience-item">
+            <div class="exp-header">
+              <div class="exp-role-company">
+                <span>Especialista en Automatización & Migración de Sistemas</span>
+                <span class="exp-company">— Consultoría Externa / Servicios Corporativos</span>
+              </div>
+              <span class="exp-date">2022 – 2024</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>
+                <strong>Migración Project Online:</strong> Lideré la migración de Project Online hacia entornos modernos utilizando <strong>PnP SharePoint (PnP PowerShell / CSOM)</strong>, reestructurando listas maestras, taxonomías y gobierno de datos.
+              </li>
+              <li>
+                <strong>Flujos Automatizados:</strong> Diseño e implementación de flujos de trabajo empresariales con <strong>Microsoft Power Automate</strong> y orquestación de servicios con <strong>n8n</strong>, reduciendo tiempos manuales en un 35%.
+              </li>
+            </ul>
+          </article>
+
+          <!-- Levi's -->
+          <article class="experience-item">
+            <div class="exp-header">
+              <div class="exp-role-company">
+                <span>Analista de Datos y Automatización de Inventarios</span>
+                <span class="exp-company">— Grupo Addist (Levi's)</span>
+              </div>
+              <span class="exp-date">may. 2018 – sept. 2018</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>
+                Desarrollé scripts en <strong>VBS y consultas SQL complejas</strong> para la base de datos de inventario masivo, <strong>reduciendo en un 40% los tiempos de procesamiento</strong> y eliminando inconsistencias logísticas en centro de distribución.
+              </li>
+              <li>
+                Auditoría técnica y análisis de discrepancias de inventario, asegurando un 99.8% de precisión en el seguimiento de stock.
+              </li>
+            </ul>
+          </article>
+
+          <!-- Avantec -->
+          <article class="experience-item">
+            <div class="exp-header">
+              <div class="exp-role-company">
+                <span>Proyectista CAD & Gestor Web</span>
+                <span class="exp-company">— Avantec Crisaludom</span>
+              </div>
+              <span class="exp-date">mar. 2013 – nov. 2014</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>
+                Diseño estructural y despiece en AutoCAD (cancelería de aluminio, acero inoxidable y cristal templado) y digitalización del catálogo comercial de productos para la web.
+              </li>
+            </ul>
+          </article>
+
+          <!-- D4 Reality -->
+          <article class="experience-item">
+            <div class="exp-header">
+              <div class="exp-role-company">
+                <span>Gerente de Sucursal & Formador Técnico Senior</span>
+                <span class="exp-company">— D4 Reality</span>
+              </div>
+              <span class="exp-date">abr. 2010 – may. 2012</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>
+                Impartí más de 15 programas especializados en tecnologías web (HTML/CSS), delineación CAD y modelado 3D (AutoCAD, 3ds Max, Maya) y Adobe Creative Suite a más de 300 ingenieros y profesionistas.
+              </li>
+            </ul>
+          </article>
+
+          <!-- Trayectoria Previa -->
+          <article class="experience-item">
+            <div class="exp-header">
+              <div class="exp-role-company">
+                <span>Cadista 3D, Proyectista & Soporte Técnico IT</span>
+                <span class="exp-company">— Hercovi / Gateway Telecom / Gieicom</span>
+              </div>
+              <span class="exp-date">2007 – 2010</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>
+                Delineación de planos arquitectónicos en AutoCAD, soporte y migración de infraestructura de red Voz/Datos en el proyecto IMSS (gestionado por Alcatel-Lucent) y memorias técnicas digitales.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Casos de Estudio Seleccionados -->
+      <section class="content-section">
+        <h2 class="section-title">Proyectos & Casos de Estudio Seleccionados</h2>
+
+        <div class="projects-grid">
+          <!-- Caso 1: SCADA -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <h3 class="project-card-title">Sistema TMS-SCADA HOH VOL</h3>
+              <span class="project-category">Software Industrial & Telemetría</span>
+            </div>
+            <p class="project-desc">
+              Desarrollo de software y funciones clave para control volumétrico de hidrocarburos en sistemas TMS-SCADA.
+            </p>
+            <div class="project-details-grid">
+              <span class="detail-label">Desafío:</span>
+              <span class="detail-text">Cumplimiento estricto de las normativas de la Comisión Reguladora de Energía (CRE Anexos 30 y 31) en plantas y terminales.</span>
+              <span class="detail-label">Solución:</span>
+              <span class="detail-text">Diseño de interfaz HMI de alta disponibilidad, integración de telemetría en tiempo real y arquitectura de base de datos relacional.</span>
+              <span class="detail-label">Resultado:</span>
+              <span class="detail-text"><strong>100% de apego normativo</strong>, operando en producción bajo estándares de Sempra Infraestructura, Pemex y CFE.</span>
+            </div>
+            <div class="project-tags">
+              <span class="tech-tag">SCADA/HMI</span>
+              <span class="tech-tag">AutoCAD Electrical</span>
+              <span class="tech-tag">SQL Server</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Modbus</span>
+            </div>
+          </article>
+
+          <!-- Caso 2: QORE Arts Studio -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <h3 class="project-card-title">QORE Arts Studio (www.qore-arts.com)</h3>
+              <span class="project-category">Servicios Digitales, CAD & Creative Tech</span>
+            </div>
+            <p class="project-desc">
+              Plataforma y estudio de servicios profesionales de delineación CAD, modelado 3D interactivo y desarrollo de software a medida.
+            </p>
+            <div class="project-details-grid">
+              <span class="detail-label">Desafío:</span>
+              <span class="detail-text">Centralizar la oferta de servicios técnicos de alta especialización (planos técnicos, automatización, diseño 3D) para clientes corporativos y remotos.</span>
+              <span class="detail-label">Solución:</span>
+              <span class="detail-text">Desarrollo de plataforma institucional orientada a la conversión de clientes, integración de flujos ágiles de contacto y muestra técnica de proyectos.</span>
+              <span class="detail-label">Resultado:</span>
+              <span class="detail-text">Marca consolidada para consultoría técnica remota y contratación B2B con presencia internacional en <a href="https://www.qore-arts.com" target="_blank" rel="noopener noreferrer" style="color:var(--text-primary); text-decoration:underline;">www.qore-arts.com</a>.</span>
+            </div>
+            <div class="project-tags">
+              <span class="tech-tag">Delineación CAD</span>
+              <span class="tech-tag">Blender 3D</span>
+              <span class="tech-tag">Web Services</span>
+              <span class="tech-tag">Next.js</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Habilidades y Stack Técnico -->
+      <section class="content-section">
+        <h2 class="section-title">Habilidades & Stack de Ingeniería</h2>
+
+        <div class="skills-stack-grid">
+          <div class="skills-group">
+            <h3>Delineación Técnica & CAD (Cadista)</h3>
+            <p>AutoCAD Electrical, Autodesk Inventor, Planos Industriales, Diagramas Unifilares, Canalizaciones, Isométricos de Tubería, Modelado 3D BIM, Simbología SCADA.</p>
+          </div>
+
+          <div class="skills-group">
+            <h3>Desarrollo de Software & Web</h3>
+            <p>Python, C#, SQL Server, PostgreSQL, React, Next.js, Vite, TypeScript, JavaScript (ES6+), Three.js, WebGL, Docker, Git/GitHub CI.</p>
+          </div>
+
+          <div class="skills-group">
+            <h3>Automatización & Integración</h3>
+            <p>Microsoft Power Automate, n8n, PnP SharePoint (PowerShell/CSOM), Project Online, Protocolo Modbus, Webhooks, APIs REST, Flujos de Trabajo ETL.</p>
+          </div>
+
+          <div class="skills-group">
+            <h3>Sistemas Industriales & Multimedia</h3>
+            <p>Sistemas TMS-SCADA, Pantallas HMI, Normativas CRE 30/31, Pemex/CFE, Blender 3D, Adobe Creative Suite (Photoshop, Illustrator, Premiere, After Effects).</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Educación y Certificaciones -->
+      <section class="content-section">
+        <h2 class="section-title">Educación & Certificaciones</h2>
+
+        <div class="education-item">
+          <div>
+            <div class="edu-title">Certificación Oficial en AutoCAD Electrical</div>
+            <div class="edu-school">Univercad — Especialización en diagramas unifilares, paneles y canalizaciones industriales</div>
+          </div>
+          <span class="edu-year">2025</span>
+        </div>
+
+        <div class="education-item">
+          <div>
+            <div class="edu-title">Ingeniería en Desarrollo de Software</div>
+            <div class="edu-school">Universidad Abierta y a Distancia de México (UnADM)</div>
+          </div>
+          <span class="edu-year">2015 – 2017</span>
+        </div>
+
+        <div class="education-item">
+          <div>
+            <div class="edu-title">Diplomados en Diseño Gráfico, Animación y Arte Digital</div>
+            <div class="edu-school">D4 Reality — Modelado 3D (3ds Max, Maya), composición digital y animación</div>
+          </div>
+          <span class="edu-year">2010 – 2012</span>
+        </div>
+
+        <div class="education-item">
+          <div>
+            <div class="edu-title">Técnico en Diseño Gráfico</div>
+            <div class="edu-school">CBT Tlalnepantla</div>
+          </div>
+          <span class="edu-year">2003 – 2006</span>
+        </div>
+      </section>
+
+    </div><!-- Fin #cv-document -->
+
+    <!-- Portafolio Visual (11 Renders Curados) -->
+    <section class="content-section gallery-section no-print">
+      <h2 class="section-title">Portafolio Visual & Renders (11 Obras)</h2>
+      <p class="gallery-intro">
+        Selección curada de modelado 3D, interfaces industriales HMI/SCADA, ensambles mecánicos en Autodesk Inventor y visualización arquitectónica. Clic en cualquier pieza para ampliar en alta definición:
+      </p>
+
+      <div id="gallery-grid" class="gallery-grid">
+        <!-- Renderizado dinámicamente vía js/index.js -->
+      </div>
     </section>
 
-    <section id="skills" class="mb-8 bg-white p-6 rounded-lg shadow-md">
-    <div class="flex items-center gap-4 mb-4 pl-4 md:pl-8">
-        <h2 class="font-bold text-left min-w-[160px] md:min-w-[200px] text-gray-700">Habilidades clave</h2>
-        <div class="flex-1 border-t border-gray-200"></div>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pl-4 md:pl-8">
-        <div>
-            <h3 class="text-base font-bold text-gray-500 text-center">Desarrollo de software</h3>
-            <ul class="list-disc pl-4 text-xs mt-2">
-                <li>Lenguajes: HTML, CSS, JavaScript, C#, Python, SQL, Visual Basic.</li>
-                <li>Bases de datos: PostgreSQL, SQL Server, Polyhedra ABB, MySQL.</li>
-                <li>Desarrollo de sitios web, aplicaciones y sistemas HMI/SCADA (ABB, AVEVA).</li>
-                <li>Plataformas cloud y DevOps: GitHub, Docker, Google Cloud.</li>
-                <li>Sistemas operativos: Linux (Ubuntu, Debian, Kali), Windows Server y Pro, macOS, Android.</li>
-            </ul>
-        </div>
-        <div>
-            <h3 class="text-base font-bold text-gray-500 text-center">Diseño gráfico y 3D</h3>
-            <ul class="list-disc pl-4 text-xs mt-2">
-                <li>Edición vectorial y de imágenes, suite Adobe avanzada, diseño de interfaces (UI/UX).</li>
-                <li>Modelado y renderizado 3D: Blender, AutoCAD, 3D Max, Inventor, Revit, SketchUp.</li>
-                <li>Animación digital: Blender, After Effects, Inkscape, Gimp.</li>
-                <li>Producción audiovisual: Adobe Premiere, After Effects, Ableton Live, Blender, Resolume (video mapping).</li>
-                <li>Diseño arquitectónico: creación de planos arquitectónicos, eléctricos y técnicos en 2D y 3D.</li>
-            </ul>
-        </div>
-        <div>
-            <h3 class="text-base font-bold text-gray-500 text-center">Proyectos y protocolos</h3>
-            <ul class="list-disc pl-4 text-xs mt-2">
-                <li>Metodologías ágiles: Scrum, Kanban, Lean.</li>
-                <li>Herramientas: Jira, Trello, Microsoft Project, GitHub Projects, n8n.</li>
-                <li>Documentación técnica, diagramas de flujo y UML.</li>
-                <li>Proyección mapping con Resolume Arena.</li>
-                <li>Protocolos de audio/video: MIDI, Modbus, DMX, Ethernet.</li>
-                <li>DAWs: Ableton Live, FL Studio, Presonus Studio, Bitwig.</li>
-            </ul>
-        </div>
-    </div>
-</section>
+    <!-- Bóveda de Documentos Técnicos & Planos (13 PDFs Oficiales) -->
+    <section class="content-section pdf-section no-print">
+      <h2 class="section-title">Planos & Especificaciones de Ingeniería (PDF)</h2>
+      <p class="gallery-intro">
+        Consulta y descarga directa de memorias técnicas, planos de ensamble mecánico y hojas de especificación:
+      </p>
 
-    <section id="experience" class="mb-8 bg-white p-6 rounded-lg shadow-md">
-        <h2 class="font-bold text-center">Experiencia profesional</h2>
-        <div class="mb-6 pb-4 border-b last:border-b-0">
-            <h3 class="text-base font-bold text-gray-500 pl-6">Integraciones y Automatización HOH</h3>
-            <p class="text-xs text-gray-600">Cadista / Desarrollador HMI/SCADA | nov. 2019 – jul. 2025</p>
-            <ul class="list-disc pl-4 text-xs mt-2">
-                <li>Desarrollé e implementé funciones clave en sistemas TMS-SCADA y el software HOH VOL para control volumétrico, mejorando la monitorización y gestión operativa del cliente y asegurando el cumplimiento normativo (CRE, anexos 30 y 31).</li>
-                <li>Colaboré en la creación de gráficos y simbología oficial para software HMI/SCADA, integrando el diseño visual con la funcionalidad del sistema para optimizar la experiencia de usuario.</li>
-                <li>Implementé control de versiones con GitHub, mejorando la gestión de código y la colaboración entre equipos mediante herramientas integradas de gestión de proyectos.</li>
-                <li>Elaboré documentación técnica especializada (manuales de operación, guías de seguimiento), optimizando la eficiencia y la comunicación interna.</li>
-                <li>Participé en la implementación de sistemas de supresión de gas y fuego, generando documentación (planos, diagramas) conforme a los estándares de Sempra, CFE y Pemex.</li>
-            </ul>
-        </div>
-
-        <div class="mb-6 pb-4 border-b last:border-b-0">
-            <h3 class="text-base font-bold text-gray-500 pl-6">Grupo Addist (Levi's)</h3>
-            <p class="text-xs text-gray-600">Auditor interno | may. 2018 – sept. 2018</p>
-            <ul class="list-disc pl-4 text-xs mt-2">
-                <li>Optimicé un sector de la base de datos, con scripts vbs y consultas SQL, logrando mayor precisión y eficiencia en el manejo de la información de inventario.</li>
-<li>Realicé a diario y dominé conteos cíclicos del inventario, demostrando habilidades prácticas en logística y gestión de datos.</li>
-            
-            </ul>
-        </div>
-
-        <div class="mb-6 pb-4 border-b last:border-b-0">
-            <h3 class="text-base font-bold text-gray-500 pl-6">Avantec Crisaludom</h3>
-            <p class="text-xs text-gray-600">Proyectista de espacios | mar. 2013 – nov. 2014</p>
-            <ul class="list-disc pl-4 text-xs mt-2">
-                <li>
-            Laboré como proyectista de cancelería, estructuras de acero inoxidable, cristal templado y aluminio. Además de la atención al cliente, gestión de personal y gestión de materiales en obra. También ayudé a elaborar catálogos de la empresa para publicación en la web.<br>
-            Me separé de la empresa por cambio de la ubicación de la sucursal.
-        </li>
-            </ul>
-        </div>
-
-        <div class="mb-6 pb-4 border-b last:border-b-0">
-            <h3 class="text-base font-bold text-gray-500 pl-6">D4 Reality</h3>
-            <p class="text-xs text-gray-600">Gerente de sucursal / Instructor de cursos | abr. 2010 – may. 2012</p>
-            <ul class="list-disc pl-4 text-xs mt-2">
-        <li>
-            Comencé como instructor de AutoCAD, 3d Max y Excel. Además de asistir con el mantenimiento a hardware y software, y apoyar con las actividades de marketing de la empresa. Al final impartí en su mayoría los cursos: Photoshop I y II, Ilustrator I y II, Flash, Premiere, Dreamweaver, Corel Draw, Excel Básico y Avanzado, Power Point, Autocad I y II, 3D Max Studio I y II, Maya y 4 Diplomados en Diseño Gráfico.
-        </li>
-            </ul>
-        </div>
-
-        <div class="mb-6 pb-4 border-b last:border-b-0">
-            <h3 class="text-base font-bold text-gray-500 pl-6">Hercovi</h3>
-            <p class="text-xs text-gray-600">Proyectista de espacios | sep. 2009 – abr. 2010</p>
-            <ul class="list-disc pl-4 text-xs mt-2">
-                <li>Diseñador gráfico, creación de diseños visuales, elaboración de presupuestos y supervisión de obras.</li>
-                <li>Utilicé SketchUp y AutoCAD para diseño arquitectónico y cálculo de materiales, optimizando recursos y demostrando planificación de proyectos.</li>
-                <li>Realicé visitas a sitios de construcción para levantamientos de avances, gestionando resurtido de materiales y coordinando personal, demostrando habilidades en logística y supervisión de proyectos.</li>
-            </ul>
-        </div>
-
-        <div class="mb-6 pb-4 last:border-b-0 border-b">
-            <h3 class="text-base font-bold text-gray-500 pl-6">Gieicom</h3>
-            <p class="text-xs text-gray-600">Auxiliar de ingeniería | jun. 2007 – mar. 2008</p>
-            <ul class="list-disc pl-4 text-xs mt-2">
-                <li>
-            Me encargué de la revisión y almacenamiento de memorias técnicas, generación de manuales para las ingenierías de cada proyecto, visita a instalaciones para levantamiento de datos y su captura digital. Manejando software como AutoCAD y Excel para el dibujo y la organización de datos.
-        </li>
-            </ul>
-        </div>
-
-        <div class="mb-6 pb-4 last:border-b-0 border-b">
-            <h3 class="text-base font-bold text-gray-500 pl-6">Gateway Telecom</h3>
-            <p class="text-xs text-gray-600">Ingeniero de servicio técnico | abr. 2008 – dic. 2008</p>
-            <ul class="list-disc pl-4 text-xs mt-2">
-                <li>
-                    Además de dar soporte técnico a flotillas de instalación en campo, durante el proyecto de migración de red cableada y equipos de hardware de Voz y Datos IMSS, participé en la resolución de tickets de servicio. Generé memorias técnicas con la ingeniería de cada sitio, especificaciones de equipos, cálculos otorgados por el área de ingeniería, planos estructurales y eléctricos de cada instalación asignada. Mi separación fue al concluir dicho proyecto, gestionado por Alcatel-Lucent.
-                </li>
-            </ul>
-        </div>
+      <div id="pdf-docs-list" class="pdf-docs-list">
+        <!-- Renderizado dinámicamente vía js/index.js -->
+      </div>
     </section>
 
-    <section id="education" class="mb-8 bg-white p-6 rounded-lg shadow-md">
-        <h2 class="font-bold text-center">Educación y formación</h2>
-        <ul class="list-disc pl-4 text-xs mt-2">
-            <li>Certificación en AutoCAD Electrical | Univercad | 2025</li>
-            <li>Ingeniería en Desarrollo de Software | UnADM | 2015–2017</li>
-            <li>Técnico en Diseño Gráfico | CBT Tlalnepantla | 2003–2006</li>
-            <li>Diplomado en Diseño Gráfico | D4 Reality | 2010–2012</li>
-            <li>Diplomado en Animación y Arte Digital | D4 Reality | 2010–2012</li>
-            <li>Cursos en Coursera: PostgreSQL, Pentesting, Wireshark, .NET, C#, Python, Encriptación | 2020–2024</li>
-            <li>Otros cursos: Excel avanzado, SQL, Access, Project, GitHub, Unity 3D, Blender, Realidad Aumentada</li>
-        </ul>
-    </section>
+    <!-- Footer -->
+    <footer class="page-footer">
+      <div class="footer-nav">
+        <a href="mailto:drqbeat@gmail.com">drqbeat@gmail.com</a>
+        <span>•</span>
+        <a href="tel:+525661581154">+52 56 6158 1154</a>
+        <span>•</span>
+        <a href="https://www.qore-arts.com" target="_blank" rel="noopener noreferrer">www.qore-arts.com</a>
+        <span>•</span>
+        <a href="https://linkedin.com/in/drqbeat" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <span>•</span>
+        <a href="https://t.me/drqbeat" target="_blank" rel="noopener noreferrer">Telegram</a>
+      </div>
+      <p>Hesvin Dario Molina Rios © 2026 — Cadista Programador & Software Developer.</p>
+    </footer>
 
-    <section id="objetivo" class="mb-8 bg-white p-6 rounded-lg shadow-md">
-        <h2 class="font-bold text-center">Objetivo profesional</h2>
-        <p>
-            Busco una posición remota que me permita aportar mi experiencia en desarrollo de software y diseño, colaborando con equipos multidisciplinarios y contribuyendo al crecimiento de la empresa mediante soluciones tecnológicas innovadoras y eficientes.
-        </p>
-    </section>
+  </div><!-- Fin .page-container -->
 
-    <div id="action-bar" class="flex flex-col md:flex-row justify-center items-center gap-4 mt-8 mb-4">
-        <button id="download-pdf" class="btn flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
-            </svg>
-            Descargar en PDF
-        </button>
-        <button id="portfolio-btn" class="btn flex items-center gap-2" onclick="window.location.href='portafolio.html'" title="Portafolio de proyectos">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7a2 2 0 012-2h3.172a2 2 0 011.414.586l1.828 1.828A2 2 0 0012.828 8H19a2 2 0 012 2v7a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" />
-            </svg>
-            Portafolio
-        </button>
-        <button id="contact-btn" class="btn flex items-center gap-2" title="Telegram">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M9.036 16.477l-.398 4.012c.57 0 .816-.244 1.115-.537l2.67-2.53 5.537 4.04c1.014.558 1.736.264 1.99-.94l3.61-16.84c.33-1.53-.553-2.13-1.54-1.76l-21.1 8.13c-1.44.558-1.42 1.36-.25 1.72l5.39 1.68 12.52-7.89c.59-.38 1.13-.17.69.24"/>
-            </svg>
-        </button>
-        <button id="linkedin-btn" class="btn flex items-center gap-2" title="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.29c-.97 0-1.75-.79-1.75-1.76s.78-1.76 1.75-1.76 1.75.79 1.75 1.76-.78 1.76-1.75 1.76zm15.5 10.29h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/>
-        </svg>
-    </button>
+  <!-- Modal Lightbox Limpio -->
+  <div id="lightbox" class="lightbox-backdrop" role="dialog" aria-modal="true" aria-label="Visualizador de imagen">
+    <button id="lightbox-close" class="lightbox-close-button" aria-label="Cerrar visor">✕</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" class="lightbox-preview" src="" alt="Vista ampliada">
+      <div id="lightbox-caption" class="lightbox-caption-text"></div>
     </div>
-</div>
+  </div>
 
+  <!-- Toast -->
+  <div id="toast" class="subtle-toast"></div>
 
-<script src="js/index.js?v=20260106"></script>
+  <!-- Script Principal -->
+  <script src="js/index.js?v=20261025c"></script>
 </body>
 </html>
