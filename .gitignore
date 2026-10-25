@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 /.vs/cv/CopilotIndices/17.13.449.12402
@@ -8,6 +8,9 @@
 /.vs/slnx.sqlite
 /.vs/slnx.sqlite
 *.json
+!galeria/gallery_index.json
+galeria_descartados/
+2026/
 .vs/CopilotSnapshots/DEC9D6ACC73F274BBBA162C0A3D019CD/state.mpack
 .vs/CopilotSnapshots/DEC9D6ACC73F274BBBA162C0A3D019CD/992AE11F707D6645A6589698E17A2D7D/8A37A23B6DBE4AB0A14F45D0D061E141
 .vs/CopilotSnapshots/DEC9D6ACC73F274BBBA162C0A3D019CD/992AE11F707D6645A6589698E17A2D7D/44E7E76414F4FD84D5732FF53F74D5C4
